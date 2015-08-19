@@ -10,6 +10,6 @@
 angular.module('giftableApp')
   .controller('NavCtrl', function ($scope, $location) {
     $scope.isCurrentPath = function (path) {
-      return $location.path() == path;
+      return $location.path() === path;
     };
   });

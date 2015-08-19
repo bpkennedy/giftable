@@ -116,3 +116,9 @@ body {
     text-transform: uppercase;
     width: 80px;
 }
+.editGiftee {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    cursor:pointer;
+}

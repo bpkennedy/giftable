@@ -12,7 +12,7 @@ angular.module('giftableApp')
 
     var authData = Ref.getAuth();
     //$scope.people = $firebaseArray(Ref.child('person').limitToLast(10));
-    $scope.people = $firebaseArray(Ref.child('person').orderByChild("created_by").equalTo(authData.uid));
+    $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
 
     // display any errors
     $scope.people.$loaded().catch(alert);
@@ -30,21 +30,21 @@ angular.module('giftableApp')
 
     $scope.goToPerson = function(personId) {
       if (personId) {
-        $location.path("/person/" + personId);
+        $location.path('/person/' + personId);
       }
     };
 
     $scope.addGiftee = function() {
       ModalService.showModal({
-        templateUrl: "views/addGiftee.html",
-        controller: "ModalCtrl"
+        templateUrl: 'views/addGiftee.html',
+        controller: 'ModalCtrl'
       }).then(function(modal) {
 
         //it's a bootstrap element, use 'modal' to show it
         modal.element.modal();
         modal.close.then(function(result) {
           $scope.formData = result;
-          if ($scope.formData != 'Cancel') {
+          if ($scope.formData !== 'Cancel') {
             // push a message to the end of the array
             $scope.people.$add({first_name: result.first_name, last_name: result.last_name, picture: result.picture, created_by: authData.uid})
               // display any errors
@@ -54,27 +54,6 @@ angular.module('giftableApp')
         });
       });
     };
-
-    $scope.deleteGiftee = function(personId) {
-      ModalService.showModal({
-        templateUrl: "views/deleteGiftee.html",
-        controller: "ModalCtrl"
-      }).then(function(modal) {
-
-        //it's a bootstrap element, use 'modal' to show it
-        modal.element.modal();
-        modal.close.then(function(result) {
-          $scope.formData = result;
-          if ($scope.formData != 'Yes') {
-            // delete Giftee from firebase
-            $scope.people.$remove(personId)
-              // display any errors
-              .catch(alert);
-          }
-          //console.log(result);
-        });
-      });
-    }
 
     function alert(msg) {
       $scope.err = msg;
