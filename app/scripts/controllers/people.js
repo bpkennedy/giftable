@@ -55,27 +55,6 @@ angular.module('giftableApp')
       });
     };
 
-    $scope.deleteGiftee = function(personId) {
-      ModalService.showModal({
-        templateUrl: 'views/deleteGiftee.html',
-        controller: 'ModalCtrl'
-      }).then(function(modal) {
-
-        //it's a bootstrap element, use 'modal' to show it
-        modal.element.modal();
-        modal.close.then(function(result) {
-          $scope.formData = result;
-          if ($scope.formData !== 'Yes') {
-            // delete Giftee from firebase
-            $scope.people.$remove(personId)
-              // display any errors
-              .catch(alert);
-          }
-          //console.log(result);
-        });
-      });
-    };
-
     function alert(msg) {
       $scope.err = msg;
       $timeout(function() {

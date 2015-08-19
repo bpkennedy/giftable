@@ -37,10 +37,6 @@
 
       <a class="list-group-item" ng-click="goToPerson(person.$id)" ng-repeat="person in people | reverse | filter: searchPeople">
           <i class="fa fa-3x fa-building-o pull-left"></i>
-          <div class="btn btn-primary pull-right delete" ng-click="deleteGiftee(person.$id); $event.stopPropagation()">
-            <i class="fa fa-trash slim"></i>
-            Delete Giftee
-          </div>
           <h4 class="list-group-item-heading">{{person.first_name}} {{person.last_name}}</h4>
           <p class="list-group-item-text">London, UK</p>
       </a>

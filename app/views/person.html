@@ -1,7 +1,24 @@
 <div class="row">
   <div class="col-md-6">
     <h2>{{person.first_name}}  {{person.last_name}}</h2>
-
+    <!-- Single button -->
+    <div class="btn-group editGiftee" ng-if="isCreator()">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-gear"></i>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a><i class="fa fa-edit"></i> Edit</a></li>
+        <li><a ng-click="deleteGiftee()"><i class="fa fa-trash"></i> Delete</a></li>
+      </ul>
+    </div>
+    <!--<div class="btn btn-warning editGiftee" ng-if="isCreator()">
+      <i class="fa fa-edit"></i>
+      Edit
+    </div>
+    <div class="btn btn-danger editGiftee" ng-if="isCreator()">
+      <i class="fa fa-trash"></i>
+      Delete
+    </div>-->
     <div class="panel panel-default bootcards-summary">
       <div class="panel-heading">
         <h3 class="panel-title">Events</h3>
@@ -89,3 +106,5 @@
         Interest Level: {{gift.interest_level}}</li>
   </ul>
 </div>
+
+<p class="alert alert-danger" ng-show="err">{{err}}</p>
