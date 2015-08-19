@@ -12,10 +12,10 @@ angular.module('giftableApp')
     $scope.id = $routeParams.id;
 
     //$scope.person = $firebaseArray(Ref.child('person')).get($scope.id);
-    $scope.person = PersonSvc($scope.id);
+    $scope.person = new PersonSvc($scope.id);
 
     $scope.addEvent = function(event) {
 
-    }
+    };
 
   });
