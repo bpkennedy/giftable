@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>{{person.first_name}}  {{person.last_name}}</h2>
+
+    <div class="panel panel-default bootcards-summary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Events</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <a class="bootcards-summary-item addEventCard" href="#">
+              <i class="fa fa-3x fa-plus"></i>
+              <h4>Add New Event <span class="label label-info"></span></h4>
+            </a>
+          </div>
+          <div class="col-xs-6 col-sm-4" ng-repeat="event in person.events">
+            <a class="bootcards-summary-item" href="#">
+              <!--<i class="fa fa-3x fa-users"></i>-->
+              <span class="eventDate">{{event.event_date * 1000 | date:'dd MMM'}}</span>
+              <h4>{{event.title}} <span class="label label-info"></span></h4>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h2>Gifts List</h2>
+    <div class="bootcards-list">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form>
+            <div class="row">
+              <div class="col-xs-9">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search Gifts...">
+                  <i class="fa fa-search"></i>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                <a class="btn btn-primary btn-block" href="#">
+                  <i class="fa fa-plus"></i>
+                  Add
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="list-group">
+
+          <a class="list-group-item" ng-repeat="gift in person.gifts">
+            <div class="row">
+              <div class="col-sm-6">
+                <i class="fa fa-3x fa-building-o pull-left"></i>
+                <h4 class="list-group-item-heading">{{gift.title}}</h4>
+                <p class="list-group-item-text">Interest Level: {{gift.interest_level}}</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="list-group-item-text">Status: {{gift.status}}</p>
+                <p class="list-group-item-text">Cost: {{gift.cost | currency}}</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="display:none;">
+  <div>Events are:</div>
+  <ul ng-repeat="event in person.events">
+    <li>{{event.event_date | date:'medium'}} - {{event.description}}</li>
+  </ul>
+  <form>
+    <input ng-model="event.event_date" type="text" placeholder="Date...">
+    <input ng-model="event.title" type="text" placeholder="Title...">
+    <input ng-model="event.description" type="text" placeholder="Description...">
+    <button type="submit" ng-click="addEvent(event);event = null;">Add New Event</button>
+  </form>
+
+  <div>Gifts on the list:</div>
+  <ul ng-repeat="gift in person.gifts">
+    <li>Title: {{gift.title}}<br/>
+        Interest Level: {{gift.interest_level}}</li>
+  </ul>
+</div>
