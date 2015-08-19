@@ -106,6 +106,7 @@ body {
 .addEventCard {
     background-color: #fff !important;
     border: 7px dashed #f5f5f5;
+    cursor:pointer;
 }
 .eventDate {
     display: block;
