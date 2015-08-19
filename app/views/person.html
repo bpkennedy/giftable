@@ -11,14 +11,6 @@
         <li><a ng-click="deleteGiftee()"><i class="fa fa-trash"></i> Delete</a></li>
       </ul>
     </div>
-    <!--<div class="btn btn-warning editGiftee" ng-if="isCreator()">
-      <i class="fa fa-edit"></i>
-      Edit
-    </div>
-    <div class="btn btn-danger editGiftee" ng-if="isCreator()">
-      <i class="fa fa-trash"></i>
-      Delete
-    </div>-->
     <div class="panel panel-default bootcards-summary">
       <div class="panel-heading">
         <h3 class="panel-title">Events</h3>
@@ -26,12 +18,12 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-xs-6 col-sm-4">
-            <a class="bootcards-summary-item addEventCard" href="#">
+            <a class="bootcards-summary-item addEventCard" ng-click="addEvent()">
               <i class="fa fa-3x fa-plus"></i>
               <h4>Add New Event <span class="label label-info"></span></h4>
             </a>
           </div>
-          <div class="col-xs-6 col-sm-4" ng-repeat="event in person.events">
+          <div class="col-xs-6 col-sm-4" ng-repeat="event in events">
             <a class="bootcards-summary-item" href="#">
               <!--<i class="fa fa-3x fa-users"></i>-->
               <span class="eventDate">{{event.event_date * 1000 | date:'dd MMM'}}</span>
@@ -52,12 +44,12 @@
             <div class="row">
               <div class="col-xs-9">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search Gifts...">
+                  <input type="text" class="form-control" ng-model="searchGifts" placeholder="Search Gifts...">
                   <i class="fa fa-search"></i>
                 </div>
               </div>
               <div class="col-xs-3">
-                <a class="btn btn-primary btn-block" href="#">
+                <a class="btn btn-primary btn-block" ng-click="addGift()">
                   <i class="fa fa-plus"></i>
                   Add
                 </a>
@@ -67,7 +59,7 @@
         </div>
         <div class="list-group">
 
-          <a class="list-group-item" ng-repeat="gift in person.gifts">
+          <a class="list-group-item" ng-repeat="gift in gifts | filter: searchGifts">
             <div class="row">
               <div class="col-sm-6">
                 <i class="fa fa-3x fa-building-o pull-left"></i>
