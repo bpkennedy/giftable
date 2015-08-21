@@ -6,8 +6,14 @@
       </div>
       <div class="modal-body">
         <form>
-          <input ng-model="data.title" type="text" placeholder="Title...">
-          <input ng-model="data.description" type="text" placeholder="Description...">
+          <div class="form-group">
+            <label for="eventTitle">Event Title</label>
+            <input ng-model="data.title" type="text" id="eventTitle" class="form-control" placeholder="Title...">
+          </div>
+          <div class="form-group">
+            <label for="eventDescription">Event Description</label>
+            <input ng-model="data.description" type="text" id="eventDescription" class="form-control" placeholder="Description...">
+          <div>
           <!--<input ng-model="data.event_date" type="text" placeholder="Event Date...">-->
         </form>
       </div>

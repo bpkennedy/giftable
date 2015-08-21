@@ -51,6 +51,7 @@ angular.module('giftableApp')
               title: result.title,
               description: result.description,
               cost: result.cost,
+              picture: result.picture,
               interest_level: result.interest_level,
               status: 'New',
               createdAt: Date.now() / 1000

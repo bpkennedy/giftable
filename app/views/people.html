@@ -36,7 +36,8 @@
     <div class="list-group" id="people" ng-show="people.length">
 
       <a class="list-group-item" ng-click="goToPerson(person.$id)" ng-repeat="person in people | reverse | filter: searchPeople">
-          <i class="fa fa-3x fa-building-o pull-left"></i>
+          <i ng-if="person.picture == ''" class="fa fa-3x fa-user pull-left"></i>
+          <img src="{{person.picture}}" ng-hide="person.picture == ''" class="pull-left">
           <h4 class="list-group-item-heading">{{person.first_name}} {{person.last_name}}</h4>
           <p class="list-group-item-text">London, UK</p>
       </a>
