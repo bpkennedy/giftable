@@ -6,9 +6,26 @@
       </div>
       <div class="modal-body">
         <form>
-          <input ng-model="data.first_name" type="text" placeholder="First Name...">
-          <input ng-model="data.last_name" type="text" placeholder="Last Name...">
-          <input ng-model="data.picture" type="text" placeholder="Url to picture...">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input ng-model="data.first_name" type="text" id="firstName" class="form-control" placeholder="First Name...">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input ng-model="data.last_name" type="text" id="lastName" class="form-control" placeholder="Last Name...">
+          </div>
+          <div class="form-group">
+            <label for="picture">Profile Picture</label>
+            <!--<input ng-model="data.picture" type="text" placeholder="Url to picture...">-->
+            <image-crop
+             data-width="300"
+             data-height="300"
+             data-shape="square"
+             data-result="data.picture"
+             data-step="imageCropStep" id="picture"
+            ></image-crop>
+            <p class="help-block">Upload a picture of your Giftee.</p>
+          </div>
         </form>
       </div>
       <div class="modal-footer">

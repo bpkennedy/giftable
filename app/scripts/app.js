@@ -18,5 +18,6 @@ angular.module('giftableApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth',
-    'angularModalService'
+    'angularModalService',
+    'ImageCropper'
   ]);

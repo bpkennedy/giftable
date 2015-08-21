@@ -17,7 +17,7 @@ angular.module('giftableApp')
     // display any errors
     $scope.people.$loaded().catch(alert);
 
-
+    $scope.noPicture = false;
     // provide a method for adding a message
     $scope.addPerson = function(newPerson) {
       if( newPerson ) {

@@ -62,7 +62,8 @@
           <a class="list-group-item" ng-repeat="gift in gifts | filter: searchGifts">
             <div class="row">
               <div class="col-sm-6">
-                <i class="fa fa-3x fa-building-o pull-left"></i>
+                <i ng-if="gift.picture == ''" class="fa fa-3x fa-user pull-left"></i>
+                <img src="{{gift.picture}}" ng-hide="gift.picture == ''" class="pull-left">
                 <h4 class="list-group-item-heading">{{gift.title}}</h4>
                 <p class="list-group-item-text">Interest Level: {{gift.interest_level}}</p>
               </div>
