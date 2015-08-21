@@ -1,6 +1,6 @@
 {
   "firebase": "giftable",
-  "public": "app",
+  "public": "dist",
   "ignore": [
     "firebase.json",
     "**/.*",
