@@ -7,3 +7,9 @@ node_js:
 before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
+  - 'npm install'
+  - 'grunt wiredep'
+  - 'grunt build'
+after_success:
+  - mkdir /home/travis/tmp
+  - echo -e "${FIREBASE_EMAIL}\n${FIREBASE_PASSWORD}" | firebase deploy

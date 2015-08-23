@@ -13,7 +13,7 @@ version 1.0.0.
 
 # Building and Deploying
 
-As new bower modules are installed, using the common `bower install xxx --save`, you need to inject these into your index.html file via the `<!-- usemin -->` blocks in the html.  To do this, simply ensure that the module is in your bower.json dependencies section and then do a `grunt wireep`.
+As new bower modules are installed, using the common `bower install xxx --save`, you need to inject these into your index.html file via the `<!-- usemin -->` blocks in the html.  To do this, simply ensure that the module is in your bower.json dependencies section and then do a `grunt wiredep`.
 
 We can use the Yo/Angularfire generator to perform a Build which will create the `dist` folder.  You can do `grunt build` to do this.
 
