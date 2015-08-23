@@ -9,7 +9,15 @@ version 1.0.0.
 2. `git clone https://github.com/bpkennedy/giftable.git`
 3. `cd giftable`
 4. `bower install` and then `npm install`
-5. `grunt` and then `grunt watch` to start the local webserver.  This will use LiveReload to watch for file changes and automatically refresh the browser.
+5. `grunt` and then `grunt serve` to start the local webserver.  This will use LiveReload to watch for file changes and automatically refresh the browser.
+
+# Building and Deploying
+
+As new bower modules are installed, using the common `bower install xxx --save`, you need to inject these into your index.html file via the `<!-- usemin -->` blocks in the html.  To do this, simply ensure that the module is in your bower.json dependencies section and then do a `grunt wireep`.
+
+We can use the Yo/Angularfire generator to perform a Build which will create the `dist` folder.  You can do `grunt build` to do this.
+
+Finally, this application is being hosted in Firebase's free app hosting.  The configuration can be found in the `firebase.json` file.  The command to deploy is `firebase deploy`.
 
 ## Testing
 
