@@ -6,11 +6,11 @@ node_js:
   - '0.10'
 before_script:
   - 'npm install -g bower grunt-cli'
+  - 'npm install -g firebase-tools'
   - 'bower install'
   - 'npm install'
   - 'grunt wiredep'
   - 'grunt build'
 after_success:
   - mkdir /home/travis/tmp
-  - sudo $(which npm) install -g firebase-tools
   - echo -e "${FIREBASE_EMAIL}\n${FIREBASE_PASSWORD}" | firebase deploy
