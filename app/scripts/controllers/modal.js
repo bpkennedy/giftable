@@ -13,4 +13,5 @@ angular.module('giftableApp')
      	close(result, 500); // close, but give 500ms for bootstrap to animate
      };
      $scope.imageCropStep = "1";
+
   });
