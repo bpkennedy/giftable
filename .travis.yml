@@ -12,4 +12,5 @@ before_script:
   - 'grunt build'
 after_success:
   - mkdir /home/travis/tmp
+  - sudo $(which npm) install -g firebase-tools
   - echo -e "${FIREBASE_EMAIL}\n${FIREBASE_PASSWORD}" | firebase deploy
