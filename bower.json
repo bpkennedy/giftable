@@ -15,7 +15,8 @@
     "angular-modal-service": "~0.6.7",
     "angular-image-crop": "*",
     "bootcards": "~1.1.2",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "angular-bootstrap": "~0.13.3"
   },
   "devDependencies": {
     "mockfirebase": "0.11.0",

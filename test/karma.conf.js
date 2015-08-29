@@ -37,6 +37,7 @@ module.exports = function(config) {
       'bower_components/angular-image-crop/image-crop.js',
       'bower_components/fastclick/lib/fastclick.js',
       'bower_components/bootcards/dist/js/bootcards.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/mockfirebase/browser/mockfirebase.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
