@@ -73,13 +73,14 @@ angular.module('giftableApp')
         //it's a bootstrap element, use 'modal' to show it
         modal.element.modal();
         modal.close.then(function(result) {
+          console.log(result.eventTime);
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
             // push a message to the end of the array
             $scope.events.$add({
               title: result.title,
               description: result.description,
-              event_date: '1408295376000',
+              event_date: result.eventTime.getTime() / 1000,
               created_at: Date.now() / 1000
             })
               // display any errors
