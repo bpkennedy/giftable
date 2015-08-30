@@ -27,44 +27,42 @@
     <!-- Add your site or application content here -->
     <div class="header" ng-cloak="">
       <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+        <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-            <a class="navbar-brand" href="#/">giftable</a>
-          </div>
+          <a class="navbar-brand" href="#/">giftable</a>
+        </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav" ng-controller="NavCtrl">
-              <!--<li class="active"><a href="#/">Home</a></li>-->
-              <!-- //angularfire -->
-              <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
-              <li ng-class="{ active: isCurrentPath('/people') || isCurrentPath('/login') }">
-                <a ng-show-auth="" ng-href="#/people">
-                  <i class="fa fa-users"></i>
-                  people
-                </a>
-              </li>
-              <li ng-class="{ active: isCurrentPath('/account') }">
-              <a ng-hide-auth="" href="#/login">
-                <i class="fa fa-lock"></i>
-                log in
-              </a>
-              <a ng-show-auth="" href="#/account">
-                <i class="fa fa-lock"></i>
-                account
+          <ul class="nav navbar-nav" ng-controller="NavCtrl">
+            <!--<li class="active"><a href="#/">Home</a></li>-->
+            <!-- //angularfire -->
+            <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
+            <li ng-class="{ active: isCurrentPath('/people') || isCurrentPath('/login') }">
+              <a ng-show-auth="" ng-href="#/people">
+                <i class="fa fa-users"></i>
+                people
               </a>
             </li>
+            <li ng-class="{ active: isCurrentPath('/account') }">
+            <a ng-hide-auth="" href="#/login">
+              <i class="fa fa-lock"></i>
+              log in
+            </a>
+            <a ng-show-auth="" href="#/account">
+              <i class="fa fa-lock"></i>
+              account
+            </a>
+          </li>
 
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -74,26 +72,24 @@
     </div>
 
     <div class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <div class="btn-group">
-          <a href="#" class="btn btn-default active">
-            <i class="fa fa-2x fa-users"></i>
-            Contacts
-          </a>
-          <a href="#" class="btn btn-default">
-            <i class="fa fa-2x fa-building-o"></i>
-            Companies
-          </a>
-          <a href="#" class="btn btn-default">
-            <i class="fa fa-2x fa-gears"></i>
-            Settings
-          </a>
-        </div>
-        <div class="bootcards-desktop-footer clearfix">
-          <p class="pull-left">Text for desktop footer goes here</p>
-          <p class="pull-left">More text for desktop footer goes here</p>
-       </div>
+      <div class="btn-group">
+        <a href="#" class="btn btn-default active">
+          <i class="fa fa-2x fa-users"></i>
+          Contacts
+        </a>
+        <a href="#" class="btn btn-default">
+          <i class="fa fa-2x fa-building-o"></i>
+          Companies
+        </a>
+        <a href="#" class="btn btn-default">
+          <i class="fa fa-2x fa-gears"></i>
+          Settings
+        </a>
       </div>
+      <div class="bootcards-desktop-footer clearfix">
+        <p class="pull-left">Text for desktop footer goes here</p>
+        <p class="pull-left">More text for desktop footer goes here</p>
+     </div>
     </div>
 
 
