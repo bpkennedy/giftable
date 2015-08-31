@@ -39,9 +39,9 @@
           <a class="navbar-brand" href="#/">giftable</a>
         </div>
 
-        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+        <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl">
 
-          <ul class="nav navbar-nav" ng-controller="NavCtrl">
+          <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#/">Home</a></li>-->
             <!-- //angularfire -->
             <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
@@ -51,17 +51,18 @@
                 people
               </a>
             </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
             <li ng-class="{ active: isCurrentPath('/account') }">
-            <a ng-hide-auth="" href="#/login">
-              <i class="fa fa-lock"></i>
-              log in
-            </a>
-            <a ng-show-auth="" href="#/account">
-              <i class="fa fa-lock"></i>
-              account
-            </a>
-          </li>
-
+              <a ng-hide-auth="" href="#/login">
+                <i class="fa fa-lock"></i>
+                log in
+              </a>
+              <a ng-show-auth="" href="#/account">
+                <i class="fa fa-lock"></i>
+                account
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -87,8 +88,8 @@
         </a>
       </div>
       <div class="bootcards-desktop-footer clearfix">
-        <p class="pull-left">Text for desktop footer goes here</p>
-        <p class="pull-left">More text for desktop footer goes here</p>
+        <p class="pull-left"></p>
+        <p class="pull-left"></p>
      </div>
     </div>
 
