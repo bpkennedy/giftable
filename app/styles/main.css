@@ -7,6 +7,7 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color:#fafafa;
 }
 body {
   padding: 0;
@@ -80,9 +81,61 @@ body {
     border-bottom: 0;
   }
 }
-/*appContainer*/
+/*index page*/
 .appContainer {
   min-height: 600px;
+}
+.navbar-default {
+  background-color:#fafafa;
+  border-color:#fafafa;
+  height:40px;
+  border:none;
+}
+/*Main page*/
+.fa-gift {
+    display: block;
+    font-size: 9em;
+    height: 140px;
+    line-height: 1em;
+    margin: 7% auto 0;
+    width: 108px;
+}
+.topRowLead {
+  font-size:2.3em;
+  text-align:center;
+  margin-bottom:15%;
+}
+.topRow {
+  background-color:#6ABB92;
+  color:#fafafa;
+}
+.peopleRow {
+  margin-top:5%;
+}
+.peopleRowLead {
+    border: 4px solid #6abb92;
+    border-radius: 4px;
+    display: block;
+    font-size: 2.3em;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    width: 60%;
+    margin-bottom:5%;
+}
+.featureContainer {
+    background-color: #6abb92;
+    border-radius: 4px;
+    color: #fafafa;
+    padding: 25px;
+    text-align: center;
+}
+.featureContainer i {
+  font-size:4em;
+}
+.featureContainer p {
+  font-size:1.2em;
+  text-align:justify;
 }
 /*People Page*/
 .list-group-item:hover {
