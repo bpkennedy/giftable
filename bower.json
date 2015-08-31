@@ -16,7 +16,8 @@
     "angular-image-crop": "*",
     "bootcards": "~1.1.2",
     "font-awesome": "~4.4.0",
-    "angular-bootstrap": "~0.13.3"
+    "angular-bootstrap": "~0.13.3",
+    "firebase-util": "~0.2.5"
   },
   "devDependencies": {
     "mockfirebase": "0.11.0",

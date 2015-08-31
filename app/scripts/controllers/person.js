@@ -10,11 +10,24 @@
 angular.module('giftableApp')
   .controller('PersonCtrl', function ($scope, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location) {
     var authData = Ref.getAuth();
-
     $scope.id = $routeParams.id;
+    $scope.giftsRef = new Firebase.util.NormalizedCollection(
+      [Ref.child("person/" + $scope.id + "/gifts"), "person"],
+      [Ref.child("gifts"), "gifts"]
+    ).select(
+      "gifts.title",
+      "gifts.cost",
+      "gifts.description",
+      "gifts.interest_level",
+      "gifts.status",
+      "gifts.picture",
+      {"key":"person.$value","alias":"test"}
+    ).ref();
+
     $scope.person = new PersonSvc($scope.id);
-    $scope.people = $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
-    $scope.gifts = $firebaseArray(Ref.child('person/' + $scope.id + '/gifts'));
+    $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
+    //$scope.gifts = $firebaseArray(Ref.child('person/' + $scope.id + '/gifts'));
+    $scope.gifts = $firebaseArray($scope.giftsRef);
     $scope.events = $firebaseArray(Ref.child('person/' + $scope.id + '/events'));
 
     $scope.deleteGiftee = function() {
@@ -109,5 +122,4 @@ angular.module('giftableApp')
         $scope.err = null;
       }, 5000);
     }
-
   });
