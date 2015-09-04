@@ -12,10 +12,14 @@ angular.module('giftableApp')
 
     var authData = Ref.getAuth();
     //$scope.people = $firebaseArray(Ref.child('person').limitToLast(10));
-    $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
+    $scope.people = [];
+    $timeout(function() {
+      $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
+      // display any errors
+      $scope.people.$loaded().catch(alert);
+    });
 
-    // display any errors
-    $scope.people.$loaded().catch(alert);
+
 
     $scope.noPicture = false;
     // provide a method for adding a message

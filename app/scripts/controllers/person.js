@@ -26,8 +26,9 @@ angular.module('giftableApp')
 
     $scope.person = new PersonSvc($scope.id);
     $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
-    //$scope.gifts = $firebaseArray(Ref.child('person/' + $scope.id + '/gifts'));
-    $scope.gifts = $firebaseArray($scope.giftsRef);
+    $scope.globalGifts = $firebaseArray(Ref.child('gifts'));
+    $scope.personGifts = $firebaseArray(Ref.child('person/' + $scope.id + '/gifts'));
+    $scope.joinedGifts = $firebaseArray($scope.giftsRef);
     $scope.events = $firebaseArray(Ref.child('person/' + $scope.id + '/events'));
 
     $scope.deleteGiftee = function() {
@@ -60,14 +61,16 @@ angular.module('giftableApp')
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
             // push a message to the end of the array
-            $scope.gifts.$add({
+            $scope.globalGifts.$add({
               title: result.title,
               description: result.description,
               cost: result.cost,
               picture: result.picture,
               interest_level: result.interest_level,
               status: 'New',
-              createdAt: Date.now() / 1000
+              created_at: Date.now() / 1000,
+              created_by: authData.uid,
+              created_for: $scope.id
             })
               // display any errors
               .catch(alert);
