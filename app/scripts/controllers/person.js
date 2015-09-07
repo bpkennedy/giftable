@@ -31,6 +31,9 @@ angular.module('giftableApp')
     $scope.joinedGifts = $firebaseArray($scope.giftsRef);
     $scope.events = $firebaseArray(Ref.child('person/' + $scope.id + '/events'));
 
+    var giftList = Ref.child('person/' + $scope.id + '/gifts');
+
+
     $scope.deleteGiftee = function() {
       ModalService.showModal({
         templateUrl: 'views/deleteGiftee.html',
@@ -73,11 +76,22 @@ angular.module('giftableApp')
               created_for: $scope.id
             })
               // display any errors
-              .catch(alert);
+              .catch(alert).then(function(ref){
+                var giftUid = ref.key();
+                $scope.createNewGiftOnPerson(giftUid);
+              });
           }
-          //console.log(result);
         });
       });
+    };
+
+    $scope.createNewGiftOnPerson = function(giftUid) {
+      //setting up this because variables can't be passed inside object literals for the .set() func below.
+      var giftId = giftUid,
+          value = 'true',
+          obj = {};
+      obj[giftId] = value;
+      giftList.update(obj);
     };
 
     $scope.addEvent = function() {
@@ -112,6 +126,12 @@ angular.module('giftableApp')
         return true;
       } else {
         return false;
+      }
+    };
+
+    $scope.goToGift = function(giftId) {
+      if (giftId) {
+        $location.path('/gift/' + giftId);
       }
     };
 

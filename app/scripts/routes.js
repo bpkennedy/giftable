@@ -82,6 +82,10 @@ angular.module('giftableApp')
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
       })
+      .when('/gift/:id', {
+        templateUrl: 'views/gift.html',
+        controller: 'GiftCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
