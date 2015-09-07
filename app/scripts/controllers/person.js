@@ -23,14 +23,30 @@ angular.module('giftableApp')
       "gifts.picture",
       {"key":"person.$value","alias":"test"}
     ).ref();
+    $scope.eventsRef = new Firebase.util.NormalizedCollection(
+      [Ref.child('person/' + $scope.id + '/events'), 'person'],
+      [Ref.child('events'), 'events']
+    ).select(
+      "events.event_title",
+      "events.event_description",
+      "events.event_date",
+      "events.created_by",
+      "events.created_at",
+      "events.created_for",
+      {"key":"person.$value","alias":"test"}
+    ).ref();
 
     $scope.person = new PersonSvc($scope.id);
     $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
     $scope.globalGifts = $firebaseArray(Ref.child('gifts'));
+    $scope.globalEvents = $firebaseArray(Ref.child('events'));
     $scope.personGifts = $firebaseArray(Ref.child('person/' + $scope.id + '/gifts'));
     $scope.joinedGifts = $firebaseArray($scope.giftsRef);
+    $scope.joinedEvents = $firebaseArray($scope.eventsRef);
+
     $scope.events = $firebaseArray(Ref.child('person/' + $scope.id + '/events'));
 
+    var eventList = Ref.child('person/' + $scope.id + '/events');
     var giftList = Ref.child('person/' + $scope.id + '/gifts');
 
 
@@ -85,6 +101,36 @@ angular.module('giftableApp')
       });
     };
 
+    $scope.addEvent = function() {
+      ModalService.showModal({
+        templateUrl: 'views/addEvent.html',
+        controller: 'ModalCtrl'
+      }).then(function(modal) {
+
+        //it's a bootstrap element, use 'modal' to show it
+        modal.element.modal();
+        modal.close.then(function(result) {
+          $scope.formData = result;
+          if ($scope.formData !== 'Cancel') {
+            // push a message to the end of the array
+            $scope.globalEvents.$add({
+              event_title: result.title,
+              event_description: result.description,
+              event_date: result.eventTime.getTime() / 1000,
+              created_at: Date.now() / 1000,
+              created_for: $scope.id,
+              created_by: authData.uid
+            })
+              // display any errors
+              .catch(alert).then(function(ref){
+                var eventUid = ref.key();
+                $scope.createNewEventOnPerson(eventUid);
+              });
+          }
+        });
+      });
+    };
+
     $scope.createNewGiftOnPerson = function(giftUid) {
       //setting up this because variables can't be passed inside object literals for the .set() func below.
       var giftId = giftUid,
@@ -94,7 +140,16 @@ angular.module('giftableApp')
       giftList.update(obj);
     };
 
-    $scope.addEvent = function() {
+    $scope.createNewEventOnPerson = function(eventUid) {
+      //setting up this because variables can't be passed inside object literals for the .set() func below.
+      var eventId = eventUid,
+          value = 'true',
+          obj = {};
+      obj[eventId] = value;
+      eventList.update(obj);
+    };
+
+    /*$scope.addEvent = function() {
       ModalService.showModal({
         templateUrl: 'views/addEvent.html',
         controller: 'ModalCtrl'
@@ -119,7 +174,7 @@ angular.module('giftableApp')
           //console.log(result);
         });
       });
-    };
+    };*/
 
     $scope.isCreator = function() {
       if ($scope.person.created_by === authData.uid) {
@@ -132,6 +187,12 @@ angular.module('giftableApp')
     $scope.goToGift = function(giftId) {
       if (giftId) {
         $location.path('/gift/' + giftId);
+      }
+    };
+
+    $scope.goToEvent = function(eventId) {
+      if (eventId) {
+        $location.path('/event/' + eventId);
       }
     };
 

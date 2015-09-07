@@ -24,11 +24,11 @@
                 <h4>Add New Event <span class="label label-info"></span></h4>
               </a>
             </div>
-            <div class="col-xs-6 col-sm-4" ng-repeat="event in events">
-              <a class="bootcards-summary-item" href="#">
+            <div class="col-xs-6 col-sm-4" ng-repeat="event in joinedEvents">
+              <a class="bootcards-summary-item" ng-click="goToEvent(event.$id)">
                 <!--<i class="fa fa-3x fa-users"></i>-->
                 <span class="eventDate">{{event.event_date * 1000 | date:'dd MMM'}}</span>
-                <h4>{{event.title}} <span class="label label-info"></span></h4>
+                <h4>{{event.event_title}} <span class="label label-info"></span></h4>
               </a>
             </div>
 
@@ -84,13 +84,13 @@
 
 <div style="display:none;">
   <div>Events are:</div>
-  <ul ng-repeat="event in person.events">
-    <li>{{event.event_date | date:'medium'}} - {{event.description}}</li>
+  <ul ng-repeat="event in joinedEvents">
+    <li>{{event.event_date | date:'medium'}} - {{event.event_description}}</li>
   </ul>
   <form>
     <input ng-model="event.event_date" type="text" placeholder="Date...">
-    <input ng-model="event.title" type="text" placeholder="Title...">
-    <input ng-model="event.description" type="text" placeholder="Description...">
+    <input ng-model="event.event_title" type="text" placeholder="Title...">
+    <input ng-model="event.event_description" type="text" placeholder="Description...">
     <button type="submit" ng-click="addEvent(event);event = null;">Add New Event</button>
   </form>
 
