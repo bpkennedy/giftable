@@ -116,7 +116,8 @@ angular.module('giftableApp')
             $scope.globalEvents.$add({
               event_title: result.title,
               event_description: result.description,
-              event_date: result.eventTime.getTime() / 1000,
+              //event_date: result.eventTime.getTime() / 1000,
+              event_date: result.eventTime.toJSON(),
               created_at: Date.now() / 1000,
               created_for: $scope.id,
               created_by: authData.uid
