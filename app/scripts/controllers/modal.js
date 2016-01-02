@@ -9,11 +9,12 @@
  */
 angular.module('giftableApp')
   .controller('ModalCtrl', function ($scope, close) {
-    $scope.close = function(result, eventTime) {
-      result.eventTime = eventTime;
+    $scope.close = function(result, eventTime, notificationTime) {
+        result.eventTime = eventTime;
+        result.notificationTime = notificationTime;
      	close(result, 500); // close, but give 500ms for bootstrap to animate
      };
-     $scope.imageCropStep = "1";
+     $scope.imageCropStep = '1';
 
      //datetimepicker stuff
      $scope.today = function() {
@@ -35,8 +36,12 @@ angular.module('giftableApp')
      };
      $scope.toggleMin();
 
-     $scope.open = function($event) {
-       $scope.status.opened = true;
+     $scope.openEvent = function() {
+       $scope.status.openedEventTime = true;
+     };
+
+     $scope.openNotification = function() {
+       $scope.status.openedNotification = true;
      };
 
      $scope.dateOptions = {

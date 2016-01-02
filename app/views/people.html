@@ -1,6 +1,6 @@
 <form style="display:none;">
-  <input ng-model="newPerson.first_name" type="text" placeholder="First Name...">
-  <input ng-model="newPerson.last_name" type="text" placeholder="Last Name...">
+  <input ng-model="newPerson.firstName" type="text" placeholder="First Name...">
+  <input ng-model="newPerson.lastName" type="text" placeholder="Last Name...">
   <input ng-model="newPerson.picture" type="text" placeholder="Url to picture...">
   <button type="submit" ng-click="addPerson(newPerson);newPerson = null;">add new person</button>
 </form>
@@ -8,7 +8,7 @@
 <!--<ul >
   <li >
     <a ng-click="goToPerson(person.$id)">
-      {{person.first_name}} {{person.last_name}} <br/>
+      {{person.firstName}} {{person.lastName}} <br/>
       <div ng-model="person.$id">{{person.$id}}</div>
     </a>
   </li>
@@ -39,7 +39,7 @@
         <a class="people list-group-item" ng-click="goToPerson(person.$id)" ng-repeat="person in people | reverse | filter: searchPeople">
             <i ng-if="person.picture == ''" class="fa fa-3x fa-user pull-left"></i>
             <img src="{{person.picture}}" ng-hide="person.picture == ''" class="pull-left">
-            <h4 class="list-group-item-heading">{{person.first_name}} {{person.last_name}}</h4>
+            <h4 class="list-group-item-heading">{{person.firstName}} {{person.lastName}}</h4>
             <p class="list-group-item-text">London, UK</p>
         </a>
 

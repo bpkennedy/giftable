@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2>{{person.first_name}}  {{person.last_name}}</h2>
+      <h2>{{person.firstName}}  {{person.lastName}}</h2>
       <!-- Single button -->
       <div class="btn-group editGiftee" ng-if="isCreator()">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -27,8 +27,8 @@
             <div class="col-xs-6 col-sm-4" ng-repeat="event in joinedEvents">
               <a class="bootcards-summary-item" ng-click="goToEvent(event.$id)">
                 <!--<i class="fa fa-3x fa-users"></i>-->
-                <span class="eventDate">{{event.event_date | date:'dd MMM'}}</span>
-                <h4>{{event.event_title}} <span class="label label-info"></span></h4>
+                <span class="eventDate">{{event.eventDate | date:'dd MMM'}}</span>
+                <h4>{{event.eventTitle}} <span class="label label-info"></span></h4>
               </a>
             </div>
 
@@ -63,10 +63,10 @@
             <a class="list-group-item gift" ng-click="goToGift(gift.$id)" ng-repeat="gift in joinedGifts | filter: searchGifts">
               <div class="row">
                 <div class="col-sm-6">
-                  <i ng-if="gift.picture == ''" class="fa fa-3x fa-user pull-left"></i>
-                  <img src="{{gift.picture}}" ng-hide="gift.picture == ''" class="pull-left">
+                  <!--<i ng-if="gift.picture == ''" class="fa fa-3x fa-user pull-left"></i>-->
+                  <!--<img src="{{gift.picture}}" ng-hide="gift.picture == ''" class="pull-left">-->
                   <h4 class="list-group-item-heading">{{gift.title}}</h4>
-                  <p class="list-group-item-text">Interest Level: {{gift.interest_level}}</p>
+                  <p class="list-group-item-text">Interest Level: {{gift.interestLevel}}</p>
                 </div>
                 <div class="col-sm-6">
                   <p class="list-group-item-text">Status: {{gift.status}}</p>
@@ -85,19 +85,19 @@
 <div style="display:none;">
   <div>Events are:</div>
   <ul ng-repeat="event in joinedEvents">
-    <li>{{event.event_date | date:'medium'}} - {{event.event_description}}</li>
+    <li>{{event.eventDate | date:'medium'}} - {{event.eventDescription}}</li>
   </ul>
   <form>
-    <input ng-model="event.event_date" type="text" placeholder="Date...">
-    <input ng-model="event.event_title" type="text" placeholder="Title...">
-    <input ng-model="event.event_description" type="text" placeholder="Description...">
+    <input ng-model="event.eventDate" type="text" placeholder="Date...">
+    <input ng-model="event.eventTitle" type="text" placeholder="Title...">
+    <input ng-model="event.eventDescription" type="text" placeholder="Description...">
     <button type="submit" ng-click="addEvent(event);event = null;">Add New Event</button>
   </form>
 
   <div>Gifts on the list:</div>
   <ul ng-repeat="gift in person.gifts">
     <li>Title: {{gift.title}}<br/>
-        Interest Level: {{gift.interest_level}}</li>
+        Interest Level: {{gift.interestLevel}}</li>
   </ul>
 </div>
 

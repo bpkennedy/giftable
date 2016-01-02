@@ -14,7 +14,7 @@ angular.module('giftableApp')
     //$scope.people = $firebaseArray(Ref.child('person').limitToLast(10));
     $scope.people = [];
     $timeout(function() {
-      $scope.people = $firebaseArray(Ref.child('person').orderByChild('created_by').equalTo(authData.uid));
+      $scope.people = $firebaseArray(Ref.child('person').orderByChild('createdBy').equalTo(authData.uid));
       // display any errors
       $scope.people.$loaded().catch(alert);
     });
@@ -26,7 +26,7 @@ angular.module('giftableApp')
     $scope.addPerson = function(newPerson) {
       if( newPerson ) {
         // push a message to the end of the array
-        $scope.people.$add({first_name: newPerson.first_name, last_name: newPerson.last_name, picture: newPerson.picture, created_by: authData.uid})
+        $scope.people.$add({firstName: newPerson.firstName, lastName: newPerson.lastName, picture: newPerson.picture || '', createdBy: authData.uid})
           // display any errors
           .catch(alert);
       }
@@ -50,7 +50,7 @@ angular.module('giftableApp')
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
             // push a message to the end of the array
-            $scope.people.$add({first_name: result.first_name, last_name: result.last_name, picture: result.picture, created_by: authData.uid})
+            $scope.people.$add({firstName: result.firstName, lastName: result.lastName, picture: result.picture || '', createdBy: authData.uid})
               // display any errors
               .catch(alert);
           }
