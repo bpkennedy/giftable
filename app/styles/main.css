@@ -280,7 +280,8 @@ body {
 }
 /*Person Page*/
 .gift {
-  transition: .2s linear all;
+  transition: background-color .2s linear;
+  padding-left: 15px;
 }
 .addEventCard {
     background-color: #fff !important;

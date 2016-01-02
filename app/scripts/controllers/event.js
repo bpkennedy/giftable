@@ -9,7 +9,7 @@
  */
 angular.module('giftableApp')
   .controller('EventCtrl', function ($scope, Ref, $routeParams, EventSvc) {
-    var authData = Ref.getAuth();
+    //var authData = Ref.getAuth();
     $scope.eventId = $routeParams.id;
     $scope.event = new EventSvc($scope.eventId);
   });
