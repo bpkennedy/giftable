@@ -20,5 +20,6 @@ angular.module('giftableApp', [
     'firebase.auth',
     'angularModalService',
     'ImageCropper',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'blockUI'
   ]);

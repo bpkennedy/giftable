@@ -8,15 +8,18 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('PeopleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $location, ModalService) {
+  .controller('PeopleCtrl', function ($scope, Ref, $firebaseArray, $timeout, $location, ModalService, blockUI) {
 
     var authData = Ref.getAuth();
     //$scope.people = $firebaseArray(Ref.child('person').limitToLast(10));
     $scope.people = [];
     $timeout(function() {
+        blockUI.start();
       $scope.people = $firebaseArray(Ref.child('person').orderByChild('createdBy').equalTo(authData.uid));
       // display any errors
-      $scope.people.$loaded().catch(alert);
+      $scope.people.$loaded(function() {
+          blockUI.stop();
+      }).catch(alert);
     });
 
 

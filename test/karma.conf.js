@@ -39,8 +39,9 @@ module.exports = function(config) {
       'bower_components/bootcards/dist/js/bootcards.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/firebase-util/dist/firebase-util.min.js',
-      'bower_components/mockfirebase/browser/mockfirebase.js',
+      'bower_components/angular-block-ui/dist/angular-block-ui.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/mockfirebase/browser/mockfirebase.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
