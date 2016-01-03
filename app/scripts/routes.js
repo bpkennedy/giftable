@@ -29,6 +29,9 @@
  */
 angular.module('giftableApp')
 
+.config(['blockUIConfig', function(blockUIConfig) {
+    blockUIConfig.cssClass = 'block-ui-custom';
+}])
 /**
  * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
  * when called, invokes Auth.$requireAuth() service (see Auth.js).
@@ -81,6 +84,10 @@ angular.module('giftableApp')
       .whenAuthenticated('/people', {
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
+      })
+      .whenAuthenticated('/events', {
+        templateUrl: 'views/events.html',
+        controller: 'EventsCtrl'
       })
       .when('/gift/:id', {
         templateUrl: 'views/gift.html',

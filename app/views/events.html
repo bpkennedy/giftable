@@ -1,0 +1,59 @@
+<form style="display:none;">
+  <input ng-model="newPerson.firstName" type="text" placeholder="First Name...">
+  <input ng-model="newPerson.lastName" type="text" placeholder="Last Name...">
+  <input ng-model="newPerson.picture" type="text" placeholder="Url to picture...">
+  <button type="submit" ng-click="addPerson(newPerson);newPerson = null;">add new person</button>
+</form>
+
+<!--<ul >
+  <li >
+    <a ng-click="goToPerson(person.$id)">
+      {{person.firstName}} {{person.lastName}} <br/>
+      <div ng-model="person.$id">{{person.$id}}</div>
+    </a>
+  </li>
+</ul>-->
+<div class="container">
+  <div class="bootcards-list topMargin20">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form>
+          <div class="row">
+            <div class="col-xs-9">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="searchEvents" placeholder="Search Events">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="showEventModal()">
+                <i class="fa fa-plus"></i>
+                Add Event
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="list-group" id="people" ng-show="events.length">
+
+        <a class="gift list-group-item" ng-click="goToEvent(event.$id)" ng-repeat="event in events | reverse | filter: searchEvents">
+            <div class="row">
+              <div class="col-sm-6">
+                <!--<i ng-if="gift.picture == ''" class="fa fa-3x fa-user pull-left"></i>-->
+                <!--<img src="{{gift.picture}}" ng-hide="gift.picture == ''" class="pull-left">-->
+                <h4 class="list-group-item-heading">{{event.eventTitle}}</h4>
+                <p class="list-group-item-text">Event Date: {{event.eventDate | date:'longDate'}}</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="list-group-item-text">Created for: {{event.createdFor}}</p>
+                <p class="list-group-item-text">Reminder Status: {{event.notification}}</p>
+              </div>
+            </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="alert alert-danger" ng-show="err">{{err}}</p>
