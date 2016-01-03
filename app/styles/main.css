@@ -147,6 +147,9 @@ body {
 .eventRow {
   background-color:#6abb92;
 }
+.eventPanel {
+    margin:20px;
+}
 .reminderRow {
   background-color:#6abb92;
   padding-bottom:10%;
@@ -380,4 +383,12 @@ body {
   color:#555;
   padding:20px;
   margin-top:3%;
+}
+.calendarIcon {
+    position: absolute;
+    right: 38px;
+    top: 0;
+}
+.relative {
+    position:relative;
 }
