@@ -85,10 +85,6 @@ angular.module('giftableApp')
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
       })
-      .whenAuthenticated('/events', {
-        templateUrl: 'views/events.html',
-        controller: 'EventsCtrl'
-      })
       .when('/gift/:id', {
         templateUrl: 'views/gift.html',
         controller: 'GiftCtrl'

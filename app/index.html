@@ -52,12 +52,6 @@
                 people
               </a>
             </li>
-            <li ng-class="{ active: isCurrentPath('/events') || isCurrentPath('/login') }">
-              <a ng-show-auth="" ng-href="#/events">
-                <i class="fa fa-calendar"></i>
-                events
-              </a>
-            </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li ng-class="{ active: isCurrentPath('/account') }">
@@ -153,12 +147,10 @@
         <script src="scripts/controllers/person.js"></script>
         <script src="scripts/services/person.js"></script>
         <script src="scripts/controllers/modal.js"></script>
-        <script src="scripts/directives/dateformat.js"></script>
         <script src="scripts/controllers/gift.js"></script>
         <script src="scripts/services/giftsvc.js"></script>
         <script src="scripts/controllers/event.js"></script>
         <script src="scripts/services/eventsvc.js"></script>
-        <script src="scripts/controllers/events.js"></script>
         <!-- endbuild -->
 
         <script>bootcards.init( {
