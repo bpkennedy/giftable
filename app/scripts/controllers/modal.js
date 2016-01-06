@@ -87,4 +87,10 @@ angular.module('giftableApp')
 
        return '';
      };
+
+     $scope.confirm = function(confirm) {
+         var result = {};
+         result.confirm = confirm;
+         close(result, 500);
+     };
   });

@@ -32,6 +32,28 @@ angular.module('giftableApp')
 .config(['blockUIConfig', function(blockUIConfig) {
     blockUIConfig.cssClass = 'block-ui-custom';
 }])
+
+.config(['toastrConfig', function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    autoDismiss: true,
+    containerId: 'toast-container',
+    maxOpened: 0,
+    newestOnTop: true,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+    preventOpenDuplicates: true,
+    target: 'body',
+    iconClasses: {
+      error: 'giftable-error',
+      info: 'toast-info',
+      success: 'giftable-success',
+      warning: 'toast-warning'
+    },
+    tapToDismiss: true,
+    //extendedTimeOut: 100000,
+    closeButton: true
+  });
+}])
 /**
  * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
  * when called, invokes Auth.$requireAuth() service (see Auth.js).

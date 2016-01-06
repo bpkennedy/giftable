@@ -248,6 +248,14 @@ body {
   margin:0;
   width:auto;
 }
+.deleteBtn {
+    position:absolute;
+    left:15px;
+    top:10px;
+}
+.itemFooter {
+    position: relative;
+}
 .giftablePrimaryColor {
   background-color:#6ABB92;
   color:#fafafa;
@@ -457,4 +465,48 @@ body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+#toast-container .giftable-success {
+    background-color:#6ABB92;
+    color:#fafafa;
+    border-color:#6ABB92;
+    box-shadow:none;
+}
+#toast-container .giftable-success:hover {
+    box-shadow: 0px 0px 7px -2px #000000;
+}
+#toast-container .giftable-success:before {
+    font-family:fontAwesome;
+    position:absolute;
+    content:'\f164';
+    left:30px;
+}
+
+#toast-container .giftable-error {
+    background-color:#555555;
+    color:#fafafa;
+    border-color:#555555;
+    box-shadow:none;
+}
+#toast-container .giftable-error:hover {
+    background-color:#777777;
+    color:#ffffff!important;
+    box-shadow: 0px 0px 7px -2px #000000;
+}
+#toast-container .giftable-error:before {
+    font-family:fontAwesome;
+    position:absolute;
+    content:'\f071';
+    left:30px;
+}
+.giftable-close-toast {
+    font-family:fontAwesome;
+    position:absolute;
+    content:'\f05c';
+    left:30px;
+}
+button.toast-close-button {
+    position: absolute;
+    right: 15px;
+    top: 10px;
 }
