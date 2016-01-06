@@ -21,5 +21,6 @@ angular.module('giftableApp', [
     'angularModalService',
     'ImageCropper',
     'ui.bootstrap',
-    'blockUI'
+    'blockUI',
+    'toastr'
   ]);
