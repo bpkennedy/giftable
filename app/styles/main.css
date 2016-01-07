@@ -510,3 +510,11 @@ button.toast-close-button {
     right: 15px;
     top: 10px;
 }
+.formAlert {
+    display:block;
+    padding: 5px;
+    margin-bottom:10px;
+}
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
