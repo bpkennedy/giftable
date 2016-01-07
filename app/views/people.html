@@ -1,18 +1,3 @@
-<form style="display:none;">
-  <input ng-model="newPerson.firstName" type="text" placeholder="First Name...">
-  <input ng-model="newPerson.lastName" type="text" placeholder="Last Name...">
-  <input ng-model="newPerson.picture" type="text" placeholder="Url to picture...">
-  <button type="submit" ng-click="addPerson(newPerson);newPerson = null;">add new person</button>
-</form>
-
-<!--<ul >
-  <li >
-    <a ng-click="goToPerson(person.$id)">
-      {{person.firstName}} {{person.lastName}} <br/>
-      <div ng-model="person.$id">{{person.$id}}</div>
-    </a>
-  </li>
-</ul>-->
 <div class="container">
   <div class="bootcards-list topMargin20">
     <div class="panel panel-default">
@@ -40,7 +25,7 @@
             <!--<i ng-if="person.picture == ''" class="fa fa-3x fa-user pull-left"></i>
             <img src="{{person.picture}}" ng-hide="person.picture == ''" class="pull-left">-->
             <h4 class="list-group-item-heading">{{person.firstName}} {{person.lastName}}</h4>
-            <p class="list-group-item-text">London, UK</p>
+            <p class="list-group-item-text">{{person.city}} {{person.state}}</p>
         </a>
 
       </div>
