@@ -5,14 +5,33 @@
         <h4 class="modal-title">Add New Giftee</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form name="gifteeForm">
           <div class="form-group">
             <label for="firstName">First Name</label>
-            <input ng-model="data.firstName" type="text" id="firstName" class="form-control" placeholder="First Name...">
+            <input ng-model="data.firstName" type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name..." ng-model-options="{ updateOn: 'blur' }" required>
+            <span class="alert alert-danger formAlert" ng-show="gifteeForm.lastName.$touched && gifteeForm.firstName.$error.required">Must have a first name</span>
           </div>
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input ng-model="data.lastName" type="text" id="lastName" class="form-control" placeholder="Last Name...">
+            <input ng-model="data.lastName" type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name..." ng-model-options="{ updateOn: 'blur' }" required>
+            <span class="alert alert-danger formAlert" ng-show="gifteeForm.lastName.$touched && gifteeForm.lastName.$error.required">Must have a last name</span>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input ng-model="data.city" type="text" id="city" class="form-control" placeholder="City...">
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input ng-model="data.state" type="text" id="state" class="form-control" placeholder="State...">
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input ng-model="data.address" type="text" id="address" class="form-control" placeholder="Address...">
+          </div>
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input ng-model="data.zipcode" type="number" name="zipcode" id="zipcode" class="form-control" placeholder="Zipcode...">
+            <span class="alert alert-danger formAlert" ng-show="gifteeForm.zipcode.$invalid">Zipcode must be a number</span>
           </div>
           <!--<div class="form-group">
             <label for="picture">Profile Picture</label>

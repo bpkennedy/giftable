@@ -29,7 +29,16 @@ angular.module('giftableApp')
     $scope.addPerson = function(newPerson) {
       if( newPerson ) {
         // push a message to the end of the array
-        $scope.people.$add({firstName: newPerson.firstName, lastName: newPerson.lastName, picture: newPerson.picture || '', createdBy: authData.uid})
+        $scope.people.$add({
+            firstName: newPerson.firstName,
+            lastName: newPerson.lastName,
+            picture: newPerson.picture || '',
+            city: newPerson.city || '',
+            state: newPerson.state || '',
+            address: newPerson.address || '',
+            zipcode: newPerson.zipcode || '',
+            createdBy: authData.uid
+        })
           // display any errors
           .catch(alert).then(function(){
             toastr.success('Giftee created!');
@@ -55,7 +64,16 @@ angular.module('giftableApp')
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
             // push a message to the end of the array
-            $scope.people.$add({firstName: result.firstName, lastName: result.lastName, picture: result.picture || '', createdBy: authData.uid})
+            $scope.people.$add({
+                firstName: result.firstName,
+                lastName: result.lastName,
+                picture: result.picture || '',
+                city: result.city || '',
+                state: result.state || '',
+                address: result.address || '',
+                zipcode: result.zipcode || '',
+                createdBy: authData.uid
+            })
               // display any errors
               .catch(alert).then(function(){
                 toastr.success('Giftee created!');
