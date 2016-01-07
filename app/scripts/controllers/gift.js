@@ -26,13 +26,14 @@ angular.module('giftableApp')
        // Your code here and set it to false when your are done with it
    };
     $scope.save = function(gift){
+        console.log($scope.giftForm.$error);
         console.log(gift);
         giftRef.update({
             'title':gift.title,
-            'cost':gift.cost,
-            'description':gift.description,
-            'interestLevel':gift.interestLevel,
-            'status':gift.status
+            'cost':gift.cost || '',
+            'description':gift.description || '',
+            'interestLevel':gift.interestLevel || '',
+            'status':gift.status || ''
         }, trySave);
         $scope.cancel();
     };

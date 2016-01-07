@@ -19,6 +19,18 @@ angular.module('giftableApp')
         personEvent = Ref.child('person/' + $scope.event.createdFor + '/events/' + $scope.eventId);
     }, 500);
 
+    $scope.status = {
+      opened: false
+    };
+
+    $scope.openNotification = function() {
+      $scope.status.openedNotification = true;
+    };
+
+    $scope.openEvent = function() {
+      $scope.status.openedEventTime = true;
+    };
+
     $scope.editMode = true;
     $scope.edit = function(){
        $scope.editMode = false;
@@ -28,9 +40,9 @@ angular.module('giftableApp')
         console.log(event);
         eventRef.update({
             'eventTitle':event.eventTitle,
-            'eventDescription':event.eventDescription,
+            'eventDescription':event.eventDescription || '',
             'eventDate':event.eventDate,
-            'notificationTime':event.notificationTime
+            'notificationTime':event.notificationTime || ''
         }, trySave);
         $scope.cancel();
     };
