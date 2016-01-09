@@ -7,7 +7,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module('giftableApp')
-  .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
+  .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout, toastr) {
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
     $scope.messages = [];
@@ -31,6 +31,10 @@ angular.module('giftableApp')
       }
     };
 
+    $scope.save = function() {
+        success('Display Name changed!');
+    };
+
     $scope.changeEmail = function(pass, newEmail) {
       $scope.err = null;
       Auth.$changeEmail({password: pass, newEmail: newEmail, oldEmail: profile.email})
@@ -43,19 +47,19 @@ angular.module('giftableApp')
     };
 
     function error(err) {
-      alert(err, 'danger');
+      toastr.error(err);
     }
 
     function success(msg) {
-      alert(msg, 'success');
+      toastr.success(msg);
     }
 
-    function alert(msg, type) {
+    /*function alert(msg, type) {
       var obj = {text: msg+'', type: type};
       $scope.messages.unshift(obj);
       $timeout(function() {
         $scope.messages.splice($scope.messages.indexOf(obj), 1);
       }, 10000);
-    }
+  }*/
 
   });

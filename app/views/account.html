@@ -1,23 +1,19 @@
 <div class="container">
-  <div class="row-fluid">
+  <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 accountBlock">
       <h3>Profile</h3>
 
-      <form role="form">
-        <p class="form-group">
+      <form role="form" name="accountForm">
+        <!--<p class="form-group">
           <label>Account ID</label>
           <br />{{user.uid}}
-        </p>
+      </p>-->
 
         <p class="form-group">
-          <label>Name:</label>
-          <input type="text" name="name" ng-model="profile.name" class="form-control" />
-        </p>
-
-        <p class="form-group">
-          <label>Sign:</label>
-          <input type="text" name="sign" ng-model="profile.sign" class="form-control" />
+          <label>Display Name:</label>
+          <input type="text" name="displayName" ng-model="profile.displayName" class="form-control" />
+          <span class="alert alert-danger formAlert" ng-show="accountForm.displayName.$invalid">Must have a title</span>
         </p>
 
         <p class="form-group">
@@ -28,54 +24,60 @@
 
       <p>
         <button role="button" ng-click="logout()" class="btn btn-danger giftableCancelColor">Log Out</button>
+        <button role="button" ng-click="save()" class="btn btn-primary giftablePrimarySolidColor">Save Changes</button>
       </p>
     </div>
     <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 accountBlock">
+      <form role="form">
+        <h3>Change Password</h3>
 
-    <!--<div class="col-md-4">
-    <form role="form">
-      <h3>Change Password</h3>
+        <p class="form-group">
+          <label>Old Password:</label>
+          <input type="password" ng-keypress="clear()" ng-model="oldpass" class="form-control" />
+        </p>
 
-      <p class="form-group">
-        <label>Old Password:</label>
-        <input type="password" ng-keypress="clear()" ng-model="oldpass" class="form-control" />
-      </p>
+        <p class="form-group">
+          <label>New Password:</label>
+          <input type="password" ng-keypress="clear()" ng-model="newpass" class="form-control" />
+        </p>
 
-      <p class="form-group">
-        <label>New Password:</label>
-        <input type="password" ng-keypress="clear()" ng-model="newpass" class="form-control" />
-      </p>
+        <p class="form-group">
+          <label>Confirm New Password:</label>
+          <input type="password" ng-keypress="clear()" ng-model="confirm" class="form-control" />
+        </p>
 
-      <p class="form-group">
-        <label>Confirm New Password:</label>
-        <input type="password" ng-keypress="clear()" ng-model="confirm" class="form-control" />
-      </p>
+        <button class="btn btn-primary" ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
 
-      <button class="btn btn-primary" ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
-
-      <p class="error" ng-show="err">{{err}}</p>
-      <p class="good" ng-show="msg">{{msg}}</p>
-    </form>
+        <p class="error" ng-show="err">{{err}}</p>
+        <p class="good" ng-show="msg">{{msg}}</p>
+      </form>
     </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 accountBlock">
+        <form>
+          <h3>Change Email</h3>
 
-    <div class="col-md-4">
-    <form>
-      <h3>Change Email</h3>
+          <p class="form-group">
+            <label>New Email:</label>
+            <input type="text" ng-keypress="clear()" ng-model="newEmail" class="form-control" />
+          </p>
 
-      <p class="form-group">
-        <label>New Email:</label>
-        <input type="text" ng-keypress="clear()" ng-model="newEmail" class="form-control" />
-      </p>
+          <p class="form-group">
+            <label>Password:</label>
+            <input type="password" ng-keypress="clear()" ng-model="pass" class="form-control" />
+          </p>
 
-      <p class="form-group">
-        <label>Password:</label>
-        <input type="password" ng-keypress="clear()" ng-model="pass" class="form-control" />
-      </p>
-
-      <button class="btn btn-primary" ng-click="changeEmail(pass, newEmail)">update email</button>
-    </form>
-  </div>-->
-
+          <button class="btn btn-primary" ng-click="changeEmail(pass, newEmail)">update email</button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
 <p class="clearfix"></p>

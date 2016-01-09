@@ -55,14 +55,14 @@
             </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <li ng-class="{ active: isCurrentPath('/account') }">
+            <li ng-class="{ active: isCurrentPath('/account') || isCurrentPath('/login') }">
               <a ng-hide-auth="" href="#/login">
                 <i class="fa fa-lock"></i>
                 log in
               </a>
               <a ng-show-auth="" href="#/account">
-                <i class="fa fa-lock"></i>
-                account
+                <i class="fa fa-user"></i>
+                {{currentUser.displayName}}
               </a>
             </li>
           </ul>
