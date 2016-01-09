@@ -9,12 +9,38 @@
  */
 angular.module('giftableApp')
   .controller('ModalCtrl', function ($scope, close) {
+    var tomorrow = new Date();
+    var afterTomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    afterTomorrow.setDate(tomorrow.getDate() + 2);
+
+    $scope.imageCropStep = '1';
+    $scope.events = [
+        {
+          date: tomorrow,
+          status: 'full'
+        },
+        {
+          date: afterTomorrow,
+          status: 'partially'
+        }
+    ];
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+    $scope.status = {
+        opened: false
+    };
+
     $scope.close = function(result, eventTime, notificationTime) {
         result.eventTime = eventTime;
-        result.notificationTime = notificationTime;
+        result.notificationTime = calculateNotificationDate(new Date(eventTime), notificationTime);
+        result.notificationDays = notificationTime;
      	close(result, 500); // close, but give 500ms for bootstrap to animate
      };
-     $scope.imageCropStep = '1';
 
      //datetimepicker stuff
      $scope.today = function() {
@@ -44,34 +70,6 @@ angular.module('giftableApp')
        $scope.status.openedNotification = true;
      };
 
-     $scope.dateOptions = {
-       formatYear: 'yy',
-       startingDay: 1
-     };
-
-     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-     $scope.format = $scope.formats[0];
-
-     $scope.status = {
-       opened: false
-     };
-
-     var tomorrow = new Date();
-     tomorrow.setDate(tomorrow.getDate() + 1);
-     var afterTomorrow = new Date();
-     afterTomorrow.setDate(tomorrow.getDate() + 2);
-     $scope.events =
-       [
-         {
-           date: tomorrow,
-           status: 'full'
-         },
-         {
-           date: afterTomorrow,
-           status: 'partially'
-         }
-       ];
-
      $scope.getDayClass = function(date, mode) {
        if (mode === 'day') {
          var dayToCheck = new Date(date).setHours(0,0,0,0);
@@ -93,4 +91,9 @@ angular.module('giftableApp')
          result.confirm = confirm;
          close(result, 500);
      };
+
+     function calculateNotificationDate(eventDate, numDaysPrior) {
+         var notificationDate = eventDate.setDate(eventDate.getDate() - numDaysPrior);
+         return new Date(notificationDate);
+     }
   });
