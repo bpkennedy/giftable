@@ -470,9 +470,6 @@ body {
     background-color:#6ABB92;
     color:#fafafa;
     border-color:#6ABB92;
-    box-shadow:none;
-}
-#toast-container .giftable-success:hover {
     box-shadow: 0px 0px 7px -2px #000000;
 }
 #toast-container .giftable-success:before {
