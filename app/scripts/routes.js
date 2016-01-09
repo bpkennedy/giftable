@@ -39,7 +39,7 @@ angular.module('giftableApp')
     containerId: 'toast-container',
     maxOpened: 0,
     newestOnTop: true,
-    positionClass: 'toast-bottom-right',
+    positionClass: 'toast-top-right',
     preventDuplicates: true,
     preventOpenDuplicates: true,
     target: 'body',
