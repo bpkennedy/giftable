@@ -5,7 +5,7 @@
         <h4 class="modal-title">Add New Event</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form name="eventForm">
           <div class="form-group">
             <label for="eventTitle">Event Title</label>
             <input ng-model="data.title" type="text" id="eventTitle" class="form-control" placeholder="Title...">
@@ -18,16 +18,17 @@
           <div class="form-group">
             <label for="eventDate">Event Date</label>
             <p class="form-group">
-              <input type="text" class="form-control" id="eventDate" datepicker-popup="{{format}}" ng-model="dt" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <input type="text" class="form-control" id="eventDate" name="eventDate" datepicker-popup="{{format}}" ng-model="dt" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openEvent()"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
+              <span class="alert alert-danger formAlert" ng-show="eventForm.eventDate.$error.required">Must have an event date</span>
             </p>
           </div>
           <div class="form-group">
             <label for="eventDate">Notification Date</label>
             <p class="form-group">
-              <input type="text" class="form-control" id="eventNotificationDate" datepicker-popup="{{format}}" ng-model="notificationTime" is-open="status.openedNotification" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <input type="text" class="form-control" id="eventNotificationDate" datepicker-popup="{{format}}" ng-model="notificationTime" is-open="status.openedNotification" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="openNotification()"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
