@@ -19,6 +19,7 @@ angular.module('giftableApp')
         personEvent = Ref.child('person/' + $scope.event.createdFor + '/events/' + $scope.eventId);
     }, 500);
 
+
     $scope.status = {
       opened: false
     };
@@ -33,6 +34,7 @@ angular.module('giftableApp')
 
     $scope.editMode = true;
     $scope.edit = function(){
+        console.log($scope.eventForm.$error);
        $scope.editMode = false;
        // Your code here and set it to false when your are done with it
    };

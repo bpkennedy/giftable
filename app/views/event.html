@@ -6,8 +6,8 @@
                     <div class="panel-heading">
                         <h1 ng-show="editMode">{{event.eventTitle}}</h1>
                         <label ng-show="!editMode" for="eventTitle">Title:</label>
-                        <input ng-show="!editMode" type="text" class="form-control" name="eventTitle" ng-model="event.eventTitle" required>
-                        <span class="alert alert-danger formAlert" ng-show="eventForm.eventTitle.$invalid">Must have a title</span>
+                        <input ng-show="!editMode" type="text" class="form-control" name="eventTitle" ng-model="event.eventTitle" ng-required="true">
+                        <span class="alert alert-danger formAlert" ng-show="eventForm1.eventTitle.$invalid">Must have a title</span>
                     </div>
                     <div class="panel-body">
                             <fieldset ng-disabled="editMode">
@@ -18,7 +18,7 @@
                                 <div class="form-group">
                                   <label for="eventDate">Event Date</label>
                                   <p class="form-group relative">
-                                    <input type="text" class="form-control" name="eventDate" id="eventDate" datepicker-popup="{{format}}" ng-model="event.eventDate" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" close-text="Close" required />
+                                    <input type="text" class="form-control" name="eventDate" id="eventDate" datepicker-popup="{{format}}" ng-model="event.eventDate" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" close-text="Close" ng-required="true" />
                                     <span class="input-group-btn calendarIcon">
                                       <button type="button" class="btn btn-default" ng-click="openEvent()"><i class="glyphicon glyphicon-calendar"></i></button>
                                     </span>
