@@ -34,17 +34,17 @@ angular.module('giftableApp')
 
     $scope.editMode = true;
     $scope.edit = function(){
-        console.log($scope.eventForm.$error);
+        console.log($scope.event);
        $scope.editMode = false;
        // Your code here and set it to false when your are done with it
    };
     $scope.save = function(event){
-        console.log(event);
         eventRef.update({
             'eventTitle':event.eventTitle,
             'eventDescription':event.eventDescription || '',
             'eventDate':event.eventDate,
-            'notificationTime':event.notificationTime || ''
+            'notificationDays':event.notificationDays,
+            'notificationTime': calculateNotificationDate(new Date(event.eventDate), event.notificationDays)
         }, trySave);
         $scope.cancel();
     };
@@ -90,12 +90,17 @@ angular.module('giftableApp')
     };
 
     var tryDelete = function(error) {
-      if (error) {
-        toastr.error('Oops!', 'An error happened.  Detail: ' + error);
-        console.log('Synchronization failed');
-      } else {
-        toastr.success('Item deleted');
-        console.log('Synchronization succeeded');
-      }
+        if (error) {
+            toastr.error('Oops!', 'An error happened.  Detail: ' + error);
+            console.log('Synchronization failed');
+        } else {
+            toastr.success('Item deleted');
+            console.log('Synchronization succeeded');
+        }
     };
+
+    function calculateNotificationDate(eventDate, numDaysPrior) {
+        var notificationDate = eventDate.setDate(eventDate.getDate() - numDaysPrior);
+        return new Date(notificationDate);
+    }
   });

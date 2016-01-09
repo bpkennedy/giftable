@@ -15,7 +15,6 @@
             <label for="eventDescription">Event Description</label>
             <input ng-model="data.description" type="text" id="eventDescription" class="form-control" placeholder="Description...">
           </div>
-          <!--<input ng-model="data.eventDate" type="text" placeholder="Event Date...">-->
           <div class="form-group">
             <label for="eventDate">Event Date</label>
             <p class="form-group relative">
@@ -27,12 +26,21 @@
             </p>
           </div>
           <div class="form-group">
-            <label for="eventDate">Notification Date</label>
+            <label for="eventDate">Reminder notification</label>
             <p class="form-group relative">
-              <input type="text" class="form-control" id="eventNotificationDate" datepicker-popup="{{format}}" ng-model="notificationTime" is-open="status.openedNotification" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-              <span class="input-group-btn calendarIcon">
-                <button type="button" class="btn btn-default" ng-click="openNotification()"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
+                <select class="form-control" name="eventNotificationDate" ng-model="notificationTime" ng-required="true">
+                    <option value="1">1 day</option>
+                    <option value="2">2 days</option>
+                    <option value="3" selected="selected" >3 days</option>
+                    <option value="4">4 days</option>
+                    <option value="5">5 days</option>
+                    <option value="6">6 days</option>
+                    <option value="7">1 week</option>
+                    <option value="14">2 weeks</option>
+                    <option value="21">3 weeks</option>
+                    <option value="28">4 weeks</option>
+                </select>
+                <span class="alert alert-danger formAlert" ng-show="eventForm.eventNotificationDate.$touched && eventForm.eventNotificationDate.$error.required">Must have a Reminder Notification Day</span>
             </p>
           </div>
         </form>

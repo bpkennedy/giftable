@@ -81,24 +81,4 @@
     </div>
   </div>
 </div>
-
-<div style="display:none;">
-  <div>Events are:</div>
-  <ul ng-repeat="event in joinedEvents">
-    <li>{{event.eventDate | date:'medium'}} - {{event.eventDescription}}</li>
-  </ul>
-  <form>
-    <input ng-model="event.eventDate" type="text" placeholder="Date...">
-    <input ng-model="event.eventTitle" type="text" placeholder="Title...">
-    <input ng-model="event.eventDescription" type="text" placeholder="Description...">
-    <button type="submit" ng-click="addEvent(event);event = null;">Add New Event</button>
-  </form>
-
-  <div>Gifts on the list:</div>
-  <ul ng-repeat="gift in person.gifts">
-    <li>Title: {{gift.title}}<br/>
-        Interest Level: {{gift.interestLevel}}</li>
-  </ul>
-</div>
-
 <p class="alert alert-danger" ng-show="err">{{err}}</p>

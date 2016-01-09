@@ -85,8 +85,8 @@ angular.module('giftableApp')
               description: result.description,
               cost: result.cost,
               picture: result.picture || '',
-              interestLevel: result.interestLevel,
-              status: 'New',
+              interestLevel: result.interestLevel || '',
+              status: 'new',
               createdAt: Date.now() / 1000,
               createdBy: authData.uid,
               createdFor: $scope.id
@@ -123,6 +123,7 @@ angular.module('giftableApp')
               createdFor: $scope.id,
               createdBy: authData.uid,
               notificationTime: result.notificationTime.toJSON(),
+              notificationDays: result.notificationDays,
               notification: 'pending'
             })
               // display any errors
@@ -153,33 +154,6 @@ angular.module('giftableApp')
       obj[eventId] = value;
       eventList.update(obj);
     };
-
-    /*$scope.addEvent = function() {
-      ModalService.showModal({
-        templateUrl: 'views/addEvent.html',
-        controller: 'ModalCtrl'
-      }).then(function(modal) {
-
-        //it's a bootstrap element, use 'modal' to show it
-        modal.element.modal();
-        modal.close.then(function(result) {
-          console.log(result.eventTime);
-          $scope.formData = result;
-          if ($scope.formData !== 'Cancel') {
-            // push a message to the end of the array
-            $scope.events.$add({
-              title: result.title,
-              description: result.description,
-              eventDate: result.eventTime.getTime() / 1000,
-              createdAt: Date.now() / 1000
-            })
-              // display any errors
-              .catch(alert);
-          }
-          //console.log(result);
-        });
-      });
-    };*/
 
     $scope.isCreator = function() {
       if ($scope.person.createdBy === authData.uid) {
