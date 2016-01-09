@@ -2,9 +2,15 @@
   <div class="row-fluid">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h2 class="text-center">Login</h2>
+      <h2 ng-show="!createMode" class="text-center">Login</h2>
+      <h2 ng-cloak ng-show="createMode" class="text-center">Register</h2>
 
-      <form role="form">
+
+      <form role="form" name="loginForm">
+          <p class="form-group" ng-cloak ng-show="createMode">
+            <label for="displayName">Display Name</label>
+            <input id="displayName" name="displayName" type="text" ng-model="displayName" class="form-control" />
+          </p>
         <p class="form-group">
           <label for="loginEmail">Email</label>
           <input id="loginEmail" name="email" type="email" ng-model="email" class="form-control" />
@@ -20,7 +26,7 @@
         <p>
           <button  class="btn btn-primary giftablePrimarySolidColor" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
           <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
-          <button  class="btn btn-primary" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, confirm)">Create Account</button>
+          <button  class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, displayName, confirm)">Create Account</button>
           <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
         </p>
       </form>

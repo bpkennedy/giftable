@@ -15,10 +15,13 @@ angular.module('giftableApp')
       );
     };
 
-    $scope.createAccount = function(email, pass, confirm) {
+    $scope.createAccount = function(email, pass, displayName, confirm) {
       $scope.err = null;
       if( !pass ) {
         $scope.err = 'Please enter a password';
+      }
+      else if ( !displayName ) {
+          $scope.err = 'Please enter a display name';
       }
       else if( pass !== confirm ) {
         $scope.err = 'Passwords do not match';
@@ -37,7 +40,7 @@ angular.module('giftableApp')
          console.log('inside createProfile');
          console.log(user.uid);
         var ref = Ref.child('users/' + user.uid), def = $q.defer();
-        ref.set({email: email, name: firstPartOfEmail(email)}, function(err) {
+        ref.set({email: email, name: displayName}, function(err) {
           $timeout(function() {
             if( err ) {
               def.reject(err);
@@ -50,19 +53,6 @@ angular.module('giftableApp')
         return def.promise;
       }
     };
-
-    function firstPartOfEmail(email) {
-      return ucfirst(email.substr(0, email.indexOf('@'))||'');
-    }
-
-    function ucfirst (str) {
-      // inspired by: http://kevin.vanzonneveld.net
-      str += '';
-      var f = str.charAt(0).toUpperCase();
-      return f + str.substr(1);
-    }
-
-
 
     function redirect() {
       $location.path('/people');
