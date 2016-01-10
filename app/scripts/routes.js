@@ -107,11 +107,11 @@ angular.module('giftableApp')
         templateUrl: 'views/people.html',
         controller: 'PeopleCtrl'
       })
-      .when('/gift/:id', {
+      .whenAuthenticated('/gift/:id', {
         templateUrl: 'views/gift.html',
         controller: 'GiftCtrl'
       })
-      .when('/event/:id', {
+      .whenAuthenticated('/event/:id', {
         templateUrl: 'views/event.html',
         controller: 'EventCtrl'
       })
