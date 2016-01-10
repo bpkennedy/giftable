@@ -40,8 +40,8 @@ angular.module('giftableApp')
     maxOpened: 0,
     newestOnTop: true,
     positionClass: 'toast-top-right',
-    preventDuplicates: true,
-    preventOpenDuplicates: true,
+    preventDuplicates: false,
+    preventOpenDuplicates: false,
     target: 'body',
     iconClasses: {
       error: 'giftable-error',
