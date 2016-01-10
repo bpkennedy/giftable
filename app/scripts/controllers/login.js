@@ -37,8 +37,6 @@ angular.module('giftableApp')
       }
 
       function createProfile(user) {
-         console.log('inside createProfile');
-         console.log(user.uid);
         var ref = Ref.child('users/' + user.uid), def = $q.defer();
         ref.set({email: email, name: displayName}, function(err) {
           $timeout(function() {

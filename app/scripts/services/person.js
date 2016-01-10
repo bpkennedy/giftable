@@ -9,7 +9,6 @@
  */
 angular.module('giftableApp')
   .service('PersonSvc', function ($firebaseObject) {
-    // AngularJS will instantiate a singleton by calling "new" on this function
     var baseRef = new Firebase('https://giftable.firebaseio.com').child('person');
 
     return function(personId) {

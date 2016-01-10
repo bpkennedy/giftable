@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-md-6">
       <h2>{{person.firstName}}  {{person.lastName}}</h2>
-      <!-- Single button -->
       <div class="btn-group editGiftee" ng-if="isCreator()">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-gear"></i>
@@ -26,12 +25,10 @@
             </div>
             <div class="col-xs-6 col-sm-4" ng-repeat="event in joinedEvents">
               <a class="bootcards-summary-item" ng-click="goToEvent(event.$id)">
-                <!--<i class="fa fa-3x fa-users"></i>-->
                 <span class="eventDate">{{event.eventDate | date:'dd MMM'}}</span>
                 <h4>{{event.eventTitle}} <span class="label label-info"></span></h4>
               </a>
             </div>
-
           </div>
         </div>
       </div>
@@ -59,12 +56,9 @@
             </form>
           </div>
           <div class="list-group">
-
             <a class="list-group-item gift" ng-click="goToGift(gift.$id)" ng-repeat="gift in joinedGifts | filter: searchGifts">
               <div class="row">
                 <div class="col-sm-6">
-                  <!--<i ng-if="gift.picture == ''" class="fa fa-3x fa-user pull-left"></i>-->
-                  <!--<img src="{{gift.picture}}" ng-hide="gift.picture == ''" class="pull-left">-->
                   <h4 class="list-group-item-heading">{{gift.title}}</h4>
                   <p class="list-group-item-text">Interest Level: {{gift.interestLevel}}</p>
                 </div>
@@ -74,11 +68,10 @@
                 </div>
               </div>
             </a>
-
           </div>
         </div>
       </div>
     </div>
   </div>
+  <p class="alert alert-danger" ng-show="err">{{err}}</p>
 </div>
-<p class="alert alert-danger" ng-show="err">{{err}}</p>

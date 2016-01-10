@@ -54,12 +54,4 @@ angular.module('giftableApp')
       toastr.success(msg);
     }
 
-    /*function alert(msg, type) {
-      var obj = {text: msg+'', type: type};
-      $scope.messages.unshift(obj);
-      $timeout(function() {
-        $scope.messages.splice($scope.messages.indexOf(obj), 1);
-      }, 10000);
-  }*/
-
   });

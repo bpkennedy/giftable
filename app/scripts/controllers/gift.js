@@ -27,8 +27,6 @@ angular.module('giftableApp')
    };
 
     $scope.save = function(gift){
-        console.log($scope.giftForm.$error);
-        console.log(gift);
         giftRef.update({
             'title':gift.title,
             'cost':gift.cost || '',
@@ -65,8 +63,6 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
             if (result.confirm === 'yes') {
                 $scope.delete();
-            } else {
-                console.log('said no');
             }
         });
       });
@@ -75,20 +71,16 @@ angular.module('giftableApp')
     var trySave = function(error) {
       if (error) {
         toastr.error('Oops!', 'An error happened.  Detail: ' + error);
-        console.log('Synchronization failed');
       } else {
         toastr.success('Changes saved!');
-        console.log('Synchronization succeeded');
       }
     };
 
     var tryDelete = function(error) {
       if (error) {
         toastr.error('Oops!', 'An error happened.  Detail: ' + error);
-        console.log('Synchronization failed');
       } else {
         toastr.success('Item deleted');
-        console.log('Synchronization succeeded');
       }
     };
   });
