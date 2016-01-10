@@ -22,11 +22,11 @@ angular.module('giftableApp')
         $scope.people.$add({
             firstName: newPerson.firstName,
             lastName: newPerson.lastName,
-            picture: newPerson.picture || '',
             city: newPerson.city || '',
             state: newPerson.state || '',
             address: newPerson.address || '',
             zipcode: newPerson.zipcode || '',
+            createdAt: new Date(),
             createdBy: authData.uid
         })
           .catch(alert).then(function(){
