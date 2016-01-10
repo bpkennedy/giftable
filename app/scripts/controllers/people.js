@@ -17,24 +17,6 @@ angular.module('giftableApp')
       $scope.people.$loaded().catch(alert);
     });
 
-    $scope.addPerson = function(newPerson) {
-      if( newPerson ) {
-        $scope.people.$add({
-            firstName: newPerson.firstName,
-            lastName: newPerson.lastName,
-            city: newPerson.city || '',
-            state: newPerson.state || '',
-            address: newPerson.address || '',
-            zipcode: newPerson.zipcode || '',
-            createdAt: new Date(),
-            createdBy: authData.uid
-        })
-          .catch(alert).then(function(){
-            toastr.success('Giftee created!');
-          });
-      }
-    };
-
     $scope.goToPerson = function(personId) {
       if (personId) {
         $location.path('/person/' + personId);
@@ -55,11 +37,11 @@ angular.module('giftableApp')
             $scope.people.$add({
                 firstName: result.firstName,
                 lastName: result.lastName,
-                picture: result.picture || '',
                 city: result.city || '',
                 state: result.state || '',
                 address: result.address || '',
                 zipcode: result.zipcode || '',
+                createdAt: new Date().toJSON(),
                 createdBy: authData.uid
             })
               .catch(alert).then(function(){

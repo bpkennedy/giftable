@@ -84,7 +84,7 @@ angular.module('giftableApp')
               cost: result.cost,
               interestLevel: result.interestLevel || '',
               status: 'new',
-              createdAt: new Date(),
+              createdAt: new Date().toJSON(),
               createdBy: authData.uid,
               createdFor: $scope.id
             })
@@ -113,7 +113,7 @@ angular.module('giftableApp')
               eventTitle: result.title,
               eventDescription: result.description,
               eventDate: result.eventTime.toJSON(),
-              createdAt: new Date(),
+              createdAt: new Date().toJSON(),
               createdFor: $scope.id,
               createdBy: authData.uid,
               notificationTime: result.notificationTime.toJSON(),
