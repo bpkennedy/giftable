@@ -8,27 +8,17 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('PeopleCtrl', function ($scope, toastr, Ref, $firebaseArray, $timeout, $location, ModalService, blockUI) {
+  .controller('PeopleCtrl', function ($scope, toastr, Ref, $firebaseArray, $timeout, $location, ModalService) {
 
     var authData = Ref.getAuth();
-    //$scope.people = $firebaseArray(Ref.child('person').limitToLast(10));
     $scope.people = [];
     $timeout(function() {
-        blockUI.start();
       $scope.people = $firebaseArray(Ref.child('person').orderByChild('createdBy').equalTo(authData.uid));
-      // display any errors
-      $scope.people.$loaded(function() {
-          blockUI.stop();
-      }).catch(alert);
+      $scope.people.$loaded().catch(alert);
     });
 
-
-
-    $scope.noPicture = false;
-    // provide a method for adding a message
     $scope.addPerson = function(newPerson) {
       if( newPerson ) {
-        // push a message to the end of the array
         $scope.people.$add({
             firstName: newPerson.firstName,
             lastName: newPerson.lastName,
@@ -39,7 +29,6 @@ angular.module('giftableApp')
             zipcode: newPerson.zipcode || '',
             createdBy: authData.uid
         })
-          // display any errors
           .catch(alert).then(function(){
             toastr.success('Giftee created!');
           });
@@ -63,7 +52,6 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
-            // push a message to the end of the array
             $scope.people.$add({
                 firstName: result.firstName,
                 lastName: result.lastName,
@@ -74,12 +62,10 @@ angular.module('giftableApp')
                 zipcode: result.zipcode || '',
                 createdBy: authData.uid
             })
-              // display any errors
               .catch(alert).then(function(){
                 toastr.success('Giftee created!');
               });
           }
-          //console.log(result);
         });
       });
     };

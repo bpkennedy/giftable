@@ -14,9 +14,6 @@ body {
 }
 
 /*Bootstrap overrides*/
-.container {
-  /*width:970px!important;*/
-}
 .navbar{
   margin-bottom:0;
 }
@@ -202,22 +199,14 @@ body {
   opacity:1;
 }
 .people.ng-leave-stagger {
-    /* this will have a 100ms delay between each successive leave animation */
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
-
-    /* in case the stagger doesn't work then these two values
-     must be set to 0 to avoid an accidental CSS inheritance */
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
 }
 .people.ng-enter-stagger {
-    /* this will have a 100ms delay between each successive enter animation */
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
-
-    /* in case the stagger doesn't work then these two values
-     must be set to 0 to avoid an accidental CSS inheritance */
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
 }
@@ -314,76 +303,6 @@ body {
     top: 20px;
     cursor:pointer;
 }
-/*IMAGE CROPPER STYLE*/
-/* Some of these styles you can override, things like colors,
- * however some styles are required for the structure, and are critical to this module behaving properly!
- */
-
-/* Core component styles */
-.ng-image-crop {
-  text-align: center;
-  margin: 0 auto;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-/* Each of the 3 steps in the process are contained within sections */
-.ng-image-crop > section {
-  background: #ccc;
-}
-/* The cropping button */
-.ng-image-crop button {
-  margin-top: 10px;
-}
-/* The dashed cropping guideline */
-.ng-image-crop .cropping-guide {
-  display: block;
-  background: rgba(255, 255, 255, .3);
-  border: 2px dashed white;
-  position: absolute;
-  pointer-events: none;
-}
-/* The circular themed cropping guideline */
-.ng-image-crop--circle .cropping-guide {
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-/* The canvas where the user positions the image via dragging and zooming */
-.ng-image-crop .cropping-canvas {
-  background: rgba(255, 255, 255, .3);
-  margin: 0 auto;
-  cursor: move;
-}
-/* The overlayed draggable zoom handle in the corner of the module */
-.ng-image-crop .zoom-handle {
-  display: block;
-  position: absolute;
-  bottom: 1px;
-  left: 1px;
-  background: rgba(255,255,255,0.7);
-  width: 80px;
-  height: 80px;
-  cursor: move;
-  border-radius: 200px 50px;
-}
-/* The text within the zoom handle */
-.ng-image-crop .zoom-handle > span {
-  color: rgba(0, 0, 0, 0.5);
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  display: block;
-  position: relative;
-  top: 32px;
-}
 /*account page*/
 .accountBlock {
   padding:10px;
@@ -397,75 +316,7 @@ body {
     right: 38px;
     top: 0;
 }
-.relative {
-    position:relative;
-}
-.block-ui-message-container,
-.block-ui-message-container:before,
-.block-ui-message-container:after {
-  border-radius: 50%;
-}
-.block-ui-message-container:before,
-.block-ui-message-container:after {
-  position: absolute;
-  content: '';
-}
-.block-ui-message-container:before {
-  width: 5.2em;
-  height: 10.2em;
-  background: #0dc5c1;
-  border-radius: 10.2em 0 0 10.2em;
-  top: -0.1em;
-  left: -0.1em;
-  -webkit-transform-origin: 5.2em 5.1em;
-  transform-origin: 5.2em 5.1em;
-  -webkit-animation: load2 2s infinite ease 1.5s;
-  animation: load2 2s infinite ease 1.5s;
-}
-.block-ui-message-container {
-  font-size: 11px;
-  text-indent: -99999em;
-  margin: 55px auto;
-  position: relative;
-  width: 10em;
-  height: 10em;
-  box-shadow: inset 0 0 0 1em #ffffff;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-}
-.block-ui-message-container:after {
-  width: 5.2em;
-  height: 10.2em;
-  background: #0dc5c1;
-  border-radius: 0 10.2em 10.2em 0;
-  top: -0.1em;
-  left: 5.1em;
-  -webkit-transform-origin: 0px 5.1em;
-  transform-origin: 0px 5.1em;
-  -webkit-animation: load2 2s infinite ease;
-  animation: load2 2s infinite ease;
-}
-@-webkit-keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load2 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+
 #toast-container .giftable-success {
     background-color:#6ABB92;
     color:#fafafa;
@@ -523,4 +374,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 input[type=number] {
     -moz-appearance: textfield;
+}
+.relative {
+    position:relative;
 }

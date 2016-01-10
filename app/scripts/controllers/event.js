@@ -34,9 +34,7 @@ angular.module('giftableApp')
 
     $scope.editMode = true;
     $scope.edit = function(){
-        console.log($scope.event);
        $scope.editMode = false;
-       // Your code here and set it to false when your are done with it
    };
     $scope.save = function(event){
         eventRef.update({
@@ -72,8 +70,6 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
             if (result.confirm === 'yes') {
                 $scope.delete();
-            } else {
-                console.log('said no');
             }
         });
       });
@@ -82,20 +78,16 @@ angular.module('giftableApp')
     var trySave = function(error) {
       if (error) {
         toastr.error('Oops!', 'An error happened.  Detail: ' + error);
-        console.log('Synchronization failed');
       } else {
         toastr.success('Changes saved!');
-        console.log('Synchronization succeeded');
       }
     };
 
     var tryDelete = function(error) {
         if (error) {
             toastr.error('Oops!', 'An error happened.  Detail: ' + error);
-            console.log('Synchronization failed');
         } else {
             toastr.success('Item deleted');
-            console.log('Synchronization succeeded');
         }
     };
 

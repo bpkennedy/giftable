@@ -20,7 +20,6 @@ angular.module('giftableApp')
       'gifts.description',
       'gifts.interestLevel',
       'gifts.status',
-      'gifts.picture',
       {'key':'person.$value','alias':'test'}
     ).ref();
     $scope.eventsRef = new Firebase.util.NormalizedCollection(
@@ -79,19 +78,16 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
-            // push a message to the end of the array
             $scope.globalGifts.$add({
               title: result.title,
               description: result.description,
               cost: result.cost,
-              picture: result.picture || '',
               interestLevel: result.interestLevel || '',
               status: 'new',
-              createdAt: Date.now() / 1000,
+              createdAt: new Date(),
               createdBy: authData.uid,
               createdFor: $scope.id
             })
-              // display any errors
               .catch(alert).then(function(ref){
                 var giftUid = ref.key();
                 $scope.createNewGiftOnPerson(giftUid);
@@ -113,20 +109,17 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
-            // push a message to the end of the array
             $scope.globalEvents.$add({
               eventTitle: result.title,
               eventDescription: result.description,
-              //eventDate: result.eventTime.getTime() / 1000,
               eventDate: result.eventTime.toJSON(),
-              createdAt: Date.now() / 1000,
+              createdAt: new Date(),
               createdFor: $scope.id,
               createdBy: authData.uid,
               notificationTime: result.notificationTime.toJSON(),
               notificationDays: result.notificationDays,
               notification: 'pending'
             })
-              // display any errors
               .catch(alert).then(function(ref){
                 var eventUid = ref.key();
                 $scope.createNewEventOnPerson(eventUid);
