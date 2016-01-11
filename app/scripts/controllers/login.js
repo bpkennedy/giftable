@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('giftableApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr) {
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
@@ -44,6 +44,8 @@ angular.module('giftableApp')
               def.reject(err);
             }
             else {
+              toastr.success('Account created');
+              Analytics.trackEvent('profile', 'account created', user.uid);
               def.resolve(ref);
             }
           });

@@ -31,13 +31,19 @@ angular.module('giftableApp')
 
 .config(['AnalyticsProvider', function (AnalyticsProvider) {
     // initial configuration
-   AnalyticsProvider.setAccount('UA-72222778-1');
+   //AnalyticsProvider.setAccount('UA-72222778-1');
 
    // track all routes/states (or not)
-   AnalyticsProvider.trackPages(true);
-
-   // Use analytics.js instead of ga.js
-   AnalyticsProvider.useAnalytics(true);
+   //AnalyticsProvider.trackPages(true);
+   AnalyticsProvider
+    .setAccount({
+       tracker: 'UA-72222778-1',
+       trackEvents: true
+    })
+    .trackPages(true)
+    .useDisplayFeatures(true)
+    .useEnhancedLinkAttribution(true);
+    
 }])
 
 .config(['toastrConfig', function(toastrConfig) {
@@ -131,8 +137,8 @@ angular.module('giftableApp')
    * for changes in auth status which might require us to navigate away from a path
    * that we can no longer view.
    */
-  .run(['$rootScope', '$location', 'Auth', 'SECURED_ROUTES', 'loginRedirectPath',
-    function($rootScope, $location, Auth, SECURED_ROUTES, loginRedirectPath) {
+  .run(['$rootScope', '$location', 'Auth', 'SECURED_ROUTES', 'loginRedirectPath', 'Analytics',
+    function($rootScope, $location, Auth, SECURED_ROUTES, loginRedirectPath, Analytics) {
       // watch for login status changes and redirect if appropriate
       Auth.$onAuth(check);
 
@@ -146,7 +152,9 @@ angular.module('giftableApp')
 
       function check(user) {
         if( !user && authRequired($location.path()) ) {
-          $location.path(loginRedirectPath);
+            $location.path(loginRedirectPath);
+        } else {
+            Analytics.set('&uid', user.uid);
         }
       }
 
@@ -155,13 +163,6 @@ angular.module('giftableApp')
       }
     }
   ])
-
-  /* jshint ignore:start */
-  //adds Google Analytics for use in app
-  .run(['Analytics', function(Analytics) {
-
-  }])
-  /* jshint ignore:end */
 
   // used by route security
   .constant('SECURED_ROUTES', {});
