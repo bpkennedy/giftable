@@ -8,7 +8,7 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('GiftCtrl', function ($scope, $timeout, Ref, $routeParams, GiftSvc, ModalService, $location, toastr) {
+  .controller('GiftCtrl', function ($scope, $timeout, Ref, $routeParams, GiftSvc, ModalService, $location, toastr, Analytics) {
     //var authData = Ref.getAuth();
     $scope.giftId = $routeParams.id;
     $scope.gift = new GiftSvc($scope.giftId);
@@ -73,6 +73,7 @@ angular.module('giftableApp')
         toastr.error('Oops!', 'An error happened.  Detail: ' + error);
       } else {
         toastr.success('Changes saved!');
+        Analytics.trackEvent('gift', 'edited', $scope.gift.title);
       }
     };
 
@@ -81,6 +82,7 @@ angular.module('giftableApp')
         toastr.error('Oops!', 'An error happened.  Detail: ' + error);
       } else {
         toastr.success('Item deleted');
+        Analytics.trackEvent('gift', 'deleted', $scope.gift.title);
       }
     };
   });

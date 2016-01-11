@@ -29,8 +29,16 @@
  */
 angular.module('giftableApp')
 
-.config(['blockUIConfig', function(blockUIConfig) {
-    blockUIConfig.cssClass = 'block-ui-custom';
+.config(['AnalyticsProvider', function (AnalyticsProvider) {
+   AnalyticsProvider
+    .setAccount({
+       tracker: 'UA-72222778-1',
+       trackEvents: true
+    })
+    .trackPages(true)
+    .useDisplayFeatures(true)
+    .useEnhancedLinkAttribution(true);
+
 }])
 
 .config(['toastrConfig', function(toastrConfig) {
@@ -124,8 +132,8 @@ angular.module('giftableApp')
    * for changes in auth status which might require us to navigate away from a path
    * that we can no longer view.
    */
-  .run(['$rootScope', '$location', 'Auth', 'SECURED_ROUTES', 'loginRedirectPath',
-    function($rootScope, $location, Auth, SECURED_ROUTES, loginRedirectPath) {
+  .run(['$rootScope', '$location', 'Auth', 'SECURED_ROUTES', 'loginRedirectPath', 'Analytics',
+    function($rootScope, $location, Auth, SECURED_ROUTES, loginRedirectPath, Analytics) {
       // watch for login status changes and redirect if appropriate
       Auth.$onAuth(check);
 
@@ -139,7 +147,9 @@ angular.module('giftableApp')
 
       function check(user) {
         if( !user && authRequired($location.path()) ) {
-          $location.path(loginRedirectPath);
+            $location.path(loginRedirectPath);
+        } else {
+            Analytics.set('&uid', user.uid);
         }
       }
 

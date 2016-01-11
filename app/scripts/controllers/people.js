@@ -8,7 +8,7 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('PeopleCtrl', function ($scope, toastr, Ref, $firebaseArray, $timeout, $location, ModalService) {
+  .controller('PeopleCtrl', function ($scope, toastr, Ref, $firebaseArray, $timeout, $location, ModalService, Analytics) {
 
     var authData = Ref.getAuth();
     $scope.people = [];
@@ -46,6 +46,7 @@ angular.module('giftableApp')
             })
               .catch(alert).then(function(){
                 toastr.success('Giftee created!');
+                Analytics.trackEvent('giftee', 'added', result.firstName + result.lastName);
               });
           }
         });

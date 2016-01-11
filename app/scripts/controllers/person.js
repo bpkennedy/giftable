@@ -8,7 +8,7 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('PersonCtrl', function ($scope, toastr, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location) {
+  .controller('PersonCtrl', function ($scope, toastr, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location, Analytics) {
     var authData = Ref.getAuth();
     $scope.id = $routeParams.id;
     $scope.giftsRef = new Firebase.util.NormalizedCollection(
@@ -92,6 +92,7 @@ angular.module('giftableApp')
                 var giftUid = ref.key();
                 $scope.createNewGiftOnPerson(giftUid);
                 toastr.success('Gift created!');
+                Analytics.trackEvent('gift', 'added', result.title);
               });
           }
         });
@@ -124,6 +125,7 @@ angular.module('giftableApp')
                 var eventUid = ref.key();
                 $scope.createNewEventOnPerson(eventUid);
                 toastr.success('Event created!');
+                Analytics.trackEvent('event', 'added', result.title);
               });
           }
         });
