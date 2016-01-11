@@ -29,8 +29,15 @@
  */
 angular.module('giftableApp')
 
-.config(['blockUIConfig', function(blockUIConfig) {
-    blockUIConfig.cssClass = 'block-ui-custom';
+.config(['AnalyticsProvider', function (AnalyticsProvider) {
+    // initial configuration
+   AnalyticsProvider.setAccount('UA-72222778-1');
+
+   // track all routes/states (or not)
+   AnalyticsProvider.trackPages(true);
+
+   // Use analytics.js instead of ga.js
+   AnalyticsProvider.useAnalytics(true);
 }])
 
 .config(['toastrConfig', function(toastrConfig) {
@@ -148,6 +155,13 @@ angular.module('giftableApp')
       }
     }
   ])
+
+  /* jshint ignore:start */
+  //adds Google Analytics for use in app
+  .run(['Analytics', function(Analytics) {
+
+  }])
+  /* jshint ignore:end */
 
   // used by route security
   .constant('SECURED_ROUTES', {});

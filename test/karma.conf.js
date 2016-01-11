@@ -28,6 +28,7 @@ module.exports = function(config) {
       'bower_components/angular-block-ui/dist/angular-block-ui.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
       'bower_components/angular-image-crop/image-crop.js',
       'bower_components/angular-modal-service/dst/angular-modal-service.js',
       'bower_components/angular-resource/angular-resource.js',

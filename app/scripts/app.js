@@ -21,6 +21,6 @@ angular.module('giftableApp', [
     'angularModalService',
     'ImageCropper',
     'ui.bootstrap',
-    'blockUI',
-    'toastr'
+    'toastr',
+    'angular-google-analytics'
   ]);
