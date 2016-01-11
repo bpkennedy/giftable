@@ -30,11 +30,6 @@
 angular.module('giftableApp')
 
 .config(['AnalyticsProvider', function (AnalyticsProvider) {
-    // initial configuration
-   //AnalyticsProvider.setAccount('UA-72222778-1');
-
-   // track all routes/states (or not)
-   //AnalyticsProvider.trackPages(true);
    AnalyticsProvider
     .setAccount({
        tracker: 'UA-72222778-1',
@@ -43,7 +38,7 @@ angular.module('giftableApp')
     .trackPages(true)
     .useDisplayFeatures(true)
     .useEnhancedLinkAttribution(true);
-    
+
 }])
 
 .config(['toastrConfig', function(toastrConfig) {
