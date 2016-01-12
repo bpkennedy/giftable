@@ -8,8 +8,8 @@
 
       <form role="form" name="loginForm">
           <p class="form-group" ng-cloak ng-show="createMode">
-            <label for="displayName">Display Name</label>
-            <input id="displayName" name="displayName" type="text" ng-model="displayName" class="form-control" />
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" ng-model="name" class="form-control" />
           </p>
         <p class="form-group">
           <label for="loginEmail">Email</label>
@@ -26,9 +26,11 @@
         <p>
           <button  class="btn btn-primary giftablePrimarySolidColor" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
           <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
-          <button  class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, displayName, confirm)">Create Account</button>
+          <button  class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, name, confirm)">Create Account</button>
           <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
         </p>
+        <a ng-click="forgotPassword()">Forgot Password?</a>
+        <a ng-href="#/updatePassword">Change Password</a>
       </form>
       <p ng-show="err" class="bg-danger alert alert-danger">{{err}}</p>
     </div>

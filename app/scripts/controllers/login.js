@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('giftableApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService) {
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
@@ -15,12 +15,36 @@ angular.module('giftableApp')
       );
     };
 
-    $scope.createAccount = function(email, pass, displayName, confirm) {
+    $scope.forgotPassword = function() {
+        ModalService.showModal({
+          templateUrl: 'views/forgotPassword.html',
+          controller: 'ModalCtrl'
+        }).then(function(modal) {
+          //it's a bootstrap element, use 'modal' to show it
+          modal.element.modal();
+          modal.close.then(function(result) {
+            $scope.formData = result;
+            if ($scope.formData !== 'Cancel') {
+              console.log('would have reset here');
+              console.log(result.email);
+              Auth.$resetPassword({
+                  email: result.email
+              })
+              .then(function() {
+                  success('Password reset.  Email sent to the specified address with instructions.');
+                  $location.path('views/updatePassword.html');
+              }, showError);
+            }
+          });
+        });
+    };
+
+    $scope.createAccount = function(email, pass, name, confirm) {
       $scope.err = null;
       if( !pass ) {
         $scope.err = 'Please enter a password';
       }
-      else if ( !displayName ) {
+      else if ( !name ) {
           $scope.err = 'Please enter a display name';
       }
       else if( pass !== confirm ) {
@@ -38,7 +62,7 @@ angular.module('giftableApp')
 
       function createProfile(user) {
         var ref = Ref.child('users/' + user.uid), def = $q.defer();
-        ref.set({email: email, name: displayName}, function(err) {
+        ref.set({email: email, name: name}, function(err) {
           $timeout(function() {
             if( err ) {
               def.reject(err);
@@ -82,5 +106,8 @@ angular.module('giftableApp')
         }
     }
 
+    function success(msg) {
+      toastr.success(msg);
+    }
 
   });
