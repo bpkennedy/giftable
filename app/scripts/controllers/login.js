@@ -17,7 +17,7 @@ angular.module('giftableApp')
 
     $scope.forgotPassword = function() {
         ModalService.showModal({
-          templateUrl: 'views/forgotPassword.html',
+          templateUrl: 'views/forgotpassword.html',
           controller: 'ModalCtrl'
         }).then(function(modal) {
           //it's a bootstrap element, use 'modal' to show it

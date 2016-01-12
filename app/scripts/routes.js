@@ -95,7 +95,7 @@ angular.module('giftableApp')
         controller: 'MainCtrl'
       })
       .when('/updatePassword', {
-        templateUrl: 'views/updatePassword.html',
+        templateUrl: 'views/updatepassword.html',
         controller: 'UpdatepasswordCtrl'
       })
 
