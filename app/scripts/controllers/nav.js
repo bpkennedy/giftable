@@ -8,17 +8,14 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('NavCtrl', function ($scope, $location, Ref, $firebaseObject) {
-    function getAuth() {
-        if (Ref.getAuth() === null) {
-            return;
-        } else {
-            var authData = Ref.getAuth();
-            $scope.currentUser = $firebaseObject(Ref.child('users').child(authData.uid));
-        }
-    }
+  .controller('NavCtrl', function ($scope, $location, Ref, $firebaseObject, $firebaseAuth) {
+    var auth = $firebaseAuth(Ref);
+    auth.$onAuth(function(authData){
+        $scope.currentUser = $firebaseObject(Ref.child('users').child(authData.uid));
+        console.log('auth changed');
+        console.log(authData.uid);
 
-    getAuth();
+    }); // Check user status
 
     $scope.isCurrentPath = function (path) {
       return $location.path() === path;

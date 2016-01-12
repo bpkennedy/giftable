@@ -33,8 +33,8 @@ angular.module('giftableApp')
     };
 
     $scope.save = function() {
-        success('Display Name changed!');
-        Analytics.trackEvent('profile', 'display name changed', user.uid);
+        success('Name changed!');
+        Analytics.trackEvent('profile', 'name changed', user.uid);
     };
 
     $scope.changeEmail = function(pass, newEmail) {

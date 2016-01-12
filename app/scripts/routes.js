@@ -94,6 +94,10 @@ angular.module('giftableApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/updatePassword', {
+        templateUrl: 'views/updatePassword.html',
+        controller: 'UpdatepasswordCtrl'
+      })
 
       .whenAuthenticated('/chat', {
         templateUrl: 'views/chat.html',
