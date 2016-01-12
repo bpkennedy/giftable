@@ -7,7 +7,12 @@
 
 html, body {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color:#fafafa;
+  /*background-color:#fafafa;*/
+  background: url('../giftBoxesStock.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 body {
   padding: 0;
@@ -132,7 +137,7 @@ body {
   margin-bottom:15%;
 }
 .topRow {
-  background-color:#fafafa;
+  /*background-color:#fafafa;*/
   color:#6abb92;
 }
 .peopleRow {
