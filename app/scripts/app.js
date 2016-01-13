@@ -22,5 +22,6 @@ angular.module('giftableApp', [
     'ImageCropper',
     'ui.bootstrap',
     'toastr',
-    'angular-google-analytics'
+    'angular-google-analytics',
+    'ngSanitize'
   ]);

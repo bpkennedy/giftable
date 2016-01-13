@@ -81,6 +81,7 @@ angular.module('giftableApp')
             $scope.globalGifts.$add({
               title: result.title,
               description: result.description,
+              url: result.url || '',
               cost: result.cost,
               interestLevel: result.interestLevel || '',
               status: 'new',
