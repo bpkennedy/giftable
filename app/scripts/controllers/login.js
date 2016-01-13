@@ -10,9 +10,17 @@ angular.module('giftableApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService) {
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
-      Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
-        redirect, showError
-      );
+      if (!email) {
+          $scope.err = 'Please enter your email address';
+      }
+      else if (!pass) {
+          $scope.err = 'Please enter a password';
+      }
+      else {
+          Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
+          redirect, showError
+        );
+      }
     };
 
     $scope.forgotPassword = function() {

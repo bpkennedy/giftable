@@ -59,4 +59,5 @@ angular.module('giftableApp')
         $scope.err = null;
       }, 5000);
     }
+
   });
