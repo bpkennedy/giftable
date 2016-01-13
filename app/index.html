@@ -45,7 +45,7 @@
 
         <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl">
 
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav giftableNav">
             <!--<li class="active"><a href="#/">Home</a></li>-->
             <!-- //angularfire -->
             <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
@@ -56,7 +56,7 @@
               </a>
             </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
+          <ul class="nav navbar-nav pull-right giftableNav">
             <li ng-class="{ active: isCurrentPath('/account') || isCurrentPath('/login') }">
               <a ng-hide-auth="" href="#/login">
                 <i class="fa fa-lock"></i>
