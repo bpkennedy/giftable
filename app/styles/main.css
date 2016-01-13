@@ -288,6 +288,96 @@ body {
   border: 1px solid #ffffff;
 }
 /*Person Page*/
+.personHeader {
+    background: #ffffff none repeat scroll 0 0;
+    margin: 10px 0;
+    padding:15px;
+    border:1px solid #d2d2d2;
+    border-radius:5px;
+}
+.gifteeName {
+    margin-top:5px;
+}
+.address {
+    margin-left:10px;
+}
+.address:before {
+    position:absolute;
+    font-family:fontawesome;
+    content:'\f041';
+    margin-left:-10px;
+}
+.tiles {
+    display:flex;
+}
+.tiles > div {
+    flex:1;
+    justify-content: center;
+    text-align: center;
+}
+.eventsSummary > div {
+    height: 100px;
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 100px;
+}
+.giftsSummary > div {
+    height: 100px;
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 100px;
+}
+.giftCount {
+    color: #6abb92;
+    font-size: 32px;
+    padding-top: 10px;
+}
+.giftLabel {
+    font-size: 22px;
+    font-weight: bold;
+    line-height:22px;
+}
+.eventCount {
+    color: #6abb92;
+    font-size: 32px;
+    padding-top: 10px;
+}
+.eventLabel {
+    font-size: 22px;
+    font-weight: bold;
+    line-height:22px;
+}
+.personEditControls {
+    display: flex;
+    padding-top:5px;
+}
+.personEditControls > div {
+    justify-content: center;
+    text-align: center;
+    margin-right:5px;
+}
+.editPersonBtn {
+    background-color:#f0ad4e;
+    border-radius: 50%;
+    color: #fff;
+    height: 22px;
+    width: 22px;
+}
+.editPersonBtn:hover {
+    cursor:pointer;
+    background-color:#ec971f;
+}
+.deletePersonBtn {
+    background-color: #d9534f;
+    border-radius: 50%;
+    color: #fff;
+    height: 22px;
+    width: 22px;
+}
+.deletePersonBtn:hover {
+    cursor:pointer;
+    background-color:#c9302c;
+}
 .gift {
   transition: background-color .2s linear;
   padding-left: 15px;

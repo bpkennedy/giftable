@@ -1,40 +1,80 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h2>{{person.firstName}}  {{person.lastName}}</h2>
-      <div class="btn-group editGiftee" ng-if="isCreator()">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-gear"></i>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a><i class="fa fa-edit"></i> Edit</a></li>
-          <li><a ng-click="deleteGiftee()"><i class="fa fa-trash"></i> Delete</a></li>
-        </ul>
+  <div class="row personHeader">
+      <div class="col-md-4">
+          <div class="">
+              <h2 class="gifteeName">{{person.firstName}}  {{person.lastName}}</h2>
+              <div class="details">
+                  <div class="address">{{person.address}} {{person.city}} {{person.state}}, {{person.zipcode}}</div>
+                  <div></div>
+                  <div></div>
+              </div>
+              <div class="personEditControls">
+                  <div class="editPersonBtn"><i class="fa fa-pencil"></i></div>
+                  <div class="deletePersonBtn"><i class="fa fa-trash-o"></i></div>
+              </div>
+          </div>
       </div>
-      <div class="panel panel-default bootcards-summary">
-        <div class="panel-heading">
-          <h3 class="panel-title">Events</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-xs-6 col-sm-4">
-              <a class="bootcards-summary-item addEventCard" ng-click="addEvent()">
-                <i class="fa fa-3x fa-plus"></i>
-                <h4>Add New Event <span class="label label-info"></span></h4>
-              </a>
-            </div>
-            <div class="col-xs-6 col-sm-4" ng-repeat="event in joinedEvents">
-              <a class="bootcards-summary-item" ng-click="goToEvent(event.$id)">
-                <span class="eventDate">{{event.eventDate | date:'dd MMM'}}</span>
-                <h4>{{event.eventTitle}} <span class="label label-info"></span></h4>
-              </a>
-            </div>
+      <div class="col-md-8">
+          <div class="tiles">
+              <div class="eventsSummary">
+                  <div>
+                      <div class="eventCount">{{joinedEvents.length}}</div>
+                      <div class="eventLabel">Events</div>
+                  </div>
+              </div>
+              <div class="giftsSummary">
+                  <div>
+                      <div class="giftCount">{{joinedGifts.length}}</div>
+                      <div class="giftLabel">Gifts</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{person.firstName}}'s Events</h4>
+      <div class="bootcards-list">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form>
+              <div class="row">
+                <div class="col-xs-9">
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng-model="searchEvents" placeholder="Search Events...">
+                    <i class="fa fa-search"></i>
+                  </div>
+                </div>
+                <div class="col-xs-3">
+                  <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addEvent()">
+                    <i class="fa fa-plus"></i>
+                    Add
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="list-group">
+            <a class="list-group-item gift" ng-click="goToEvent(event.$id)" ng-repeat="event in joinedEvents | filter: searchEvents">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="list-group-item-heading">{{event.eventTitle}}</h4>
+                  <p class="list-group-item-text">{{event.eventDate | date:'dd MMM'}}</p>
+                </div>
+                <!--<div class="col-sm-6">
+                  <p class="list-group-item-text">Status: {{gift.status}}</p>
+                  <p class="list-group-item-text">Cost: {{gift.cost | currency}}</p>
+              </div>-->
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <h2>Gifts List</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{person.firstName}}'s Gifts</h4>
       <div class="bootcards-list">
         <div class="panel panel-default">
           <div class="panel-body">
