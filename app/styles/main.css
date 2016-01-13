@@ -18,6 +18,10 @@ body {
   margin-bottom:0;
 }
 
+.giftableNav > li > a {
+    line-height:18px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -81,6 +85,7 @@ body {
 /*index page*/
 .appContainer {
   min-height: 600px;
+  background: url('../pattern4.png') repeat center fixed;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -129,16 +134,20 @@ body {
 .topRowLead {
   font-size:2.3em;
   text-align:center;
-  margin-bottom:15%;
+  margin-bottom:7%;
 }
 .topRow {
-  background-color:#fafafa;
-  color:#6abb92;
+  color:#ffffff;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(../giftBoxesStock.png) no-repeat top center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .peopleRow {
     background-color: #6abb92;
     color: #fafafa;
-    margin-top: 5%;
     padding-top: 5%;
 }
 .eventRow {
@@ -377,4 +386,21 @@ input[type=number] {
 }
 .relative {
     position:relative;
+}
+.topRowMessage {
+    margin: 0 auto;
+    padding-bottom: 100px;
+    padding-top: 60px;
+    width: 450px;
+}
+.giftableAction {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+}
+.giftableAction:hover {
+    background: #ffffff;
+    color:#333333;
 }
