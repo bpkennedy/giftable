@@ -8,8 +8,9 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('GiftCtrl', function ($scope, $timeout, Ref, $routeParams, GiftSvc, ModalService, $location, toastr, Analytics) {
+  .controller('GiftCtrl', function ($scope, $window, $timeout, Ref, $routeParams, GiftSvc, ModalService, $location, toastr, Analytics) {
     //var authData = Ref.getAuth();
+    $scope.test = 'https://www.google.com';
     $scope.giftId = $routeParams.id;
     $scope.gift = new GiftSvc($scope.giftId);
     var giftRef = Ref.child('gifts/' + $scope.giftId);
@@ -31,6 +32,7 @@ angular.module('giftableApp')
             'title':gift.title,
             'cost':gift.cost || '',
             'description':gift.description || '',
+            'url':gift.url || '',
             'interestLevel':gift.interestLevel || '',
             'status':gift.status || ''
         }, trySave);
@@ -66,6 +68,10 @@ angular.module('giftableApp')
             }
         });
       });
+    };
+
+    $scope.goToGift = function(url) {
+        $window.open(url, '_blank');
     };
 
     var trySave = function(error) {

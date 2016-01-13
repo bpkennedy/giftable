@@ -16,6 +16,10 @@
             <textarea ng-model="data.description" id="giftDescription" class="form-control" placeholder="Description..."></textarea>
           </div>
           <div class="form-group">
+            <label for="giftUrl">Link</label>
+            <input ng-model="data.url" id="giftUrl" class="form-control" placeholder="Link..." type="text"/>
+          </div>
+          <div class="form-group">
             <label for="giftCost">Cost</label>
             <input ng-model="data.cost" type="number" name="giftCost" id="giftCost" class="form-control" placeholder="Cost...">
             <span class="alert alert-danger formAlert" ng-show="giftForm.giftCost.$invalid">Cost must be a number</span>

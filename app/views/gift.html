@@ -15,6 +15,11 @@
                                     <label for="giftDescription">Description</label>
                                     <textarea name="giftDescription" class="form-control" ng-model="gift.description" placeholder="Description..."></textarea>
                                 </div>
+                                <div class="form-group giftLinkGroup">
+                                    <label for="giftUrl">Link</label>
+                                    <input type="text" name="giftUrl" class="form-control" ng-model="gift.url"/>
+                                    <button class="btn btn-default giftLinkBtn" ng-show="!editMode" ng-click="goToGift(gift.url)">Go</button>
+                                </div>
                                 <div class="form-group">
                                     <label for="giftInterestLevel">Interest Level</label>
                                     <select class="form-control" name="giftInterestLevel" ng-model="gift.interestLevel">
