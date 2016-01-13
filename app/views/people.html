@@ -19,7 +19,11 @@
           </div>
         </form>
       </div>
+      <div class="emptyResults" ng-show="!people.length">
+          <div>You have no giftees!  Add some.</div>
+      </div>
       <div class="list-group" id="people" ng-show="people.length">
+
         <a class="people gift list-group-item" ng-click="goToPerson(person.$id)" ng-repeat="person in people | reverse | filter: searchPeople">
             <h4 class="list-group-item-heading">{{person.firstName}} {{person.lastName}}</h4>
             <p class="list-group-item-text">{{person.city}} {{person.state}}</p>
