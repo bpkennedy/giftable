@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container whiteBackground">
   <div class="row personHeader">
       <div class="col-md-4">
           <div class="">
@@ -48,7 +48,7 @@
                 <div class="col-xs-3">
                   <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addEvent()">
                     <i class="fa fa-plus"></i>
-                    Add
+                    Add Event
                   </a>
                 </div>
               </div>
@@ -68,7 +68,7 @@
               </div>
               <div class="hiddenDayCounter" ng-class="getProximityColor(event.eventDate)">
                   <div class="daysUntilContainer">
-                      <div><span ng-bind="calculateDaysAway(event.eventDate)"></span> days away</div>
+                      <div><span class="daysLabel" ng-bind="calculateDaysAway(event.eventDate)"></span> days left</div>
                   </div>
               </div>
             </a>
@@ -94,7 +94,7 @@
                 <div class="col-xs-3">
                   <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addGift()">
                     <i class="fa fa-plus"></i>
-                    Add
+                    Add Gift
                   </a>
                 </div>
               </div>
