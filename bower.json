@@ -10,6 +10,7 @@
     "angular-google-analytics": "~1.1.5",
     "angular-image-crop": "*",
     "angular-modal-service": "~0.6.7",
+    "angular-moment": "~0.10.3",
     "angular-resource": "^1.3.0",
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",

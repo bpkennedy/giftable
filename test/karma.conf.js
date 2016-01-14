@@ -31,6 +31,8 @@ module.exports = function(config) {
       'bower_components/angular-google-analytics/dist/angular-google-analytics.min.js',
       'bower_components/angular-image-crop/image-crop.js',
       'bower_components/angular-modal-service/dst/angular-modal-service.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',

@@ -378,9 +378,42 @@ body {
     cursor:pointer;
     background-color:#c9302c;
 }
+.hiddenDayCounter {
+    transition: all .2s ease-in-out;
+    background-color: #6ABB92;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0px;
+    color:#fafafa;
+    box-shadow:0 0 3px #000 inset;
+}
+.daysUntilContainer {
+    overflow:hidden;
+    height:100%;
+    font-size:20px;
+    text-align: center;
+    line-height:63px;
+}
+.giftInfo {
+    position: relative;
+}
 .gift {
   transition: background-color .2s linear;
   padding-left: 15px;
+}
+.gift:hover > .hiddenDayCounter {
+    width:400px;
+}
+.gift .red {
+    background-color:#d9534f;
+}
+.gift .yellow {
+    background-color:#f1c40f;
+}
+.gift .green {
+    background-color: #6ABB92;
 }
 .addEventCard {
     background-color: #fff !important;
