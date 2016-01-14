@@ -175,6 +175,9 @@ angular.module('giftableApp')
     $scope.calculateDaysAway = function(eventDate) {
         var eventDay = moment(eventDate),
             daysUntil = eventDay.diff(today, 'days');
+        if (daysUntil < 0) {
+            daysUntil = 0;
+        }
         return daysUntil;
     };
 
@@ -184,8 +187,10 @@ angular.module('giftableApp')
             return 'green';
         } else if (days > 7 && days < 14) {
             return 'yellow';
-        } else if (days < 7){
+        } else if (days > 0 && days < 7){
             return 'red';
+        } else if (days === 0){
+            return 'death';
         }
     };
 

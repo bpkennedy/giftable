@@ -4,9 +4,12 @@
   color: #000;
   padding: 0.2em 0;
 }
-
+html {
+    overflow-x:hidden;
+}
 html, body {
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+  font-weight:900;
   background-color:#fafafa;
 }
 body {
@@ -20,6 +23,41 @@ body {
 
 .giftableNav > li > a {
     line-height:18px;
+}
+.btn-primary {
+    background-color:#3498db;
+}
+.btn-primary:hover {
+    background-color:#2980b9;
+}
+.btn-default {
+    background-color:#ecf0f1;
+}
+.btn-default:hover {
+    background-color:#bdc3c7;
+}
+.btn-warning {
+    background-color:#e67e22;
+}
+.btn-warning:hover {
+    background-color:#d35400;
+}
+.btn-danger {
+    background-color:#e74c3c;
+}
+.btn-danger:hover {
+    background-color:#c0392b;
+}
+.panel {
+    background-color:#ecf0f1;
+}
+.panel-default .panel-heading {
+    background-color:#34495e;
+    color:#ffffff;
+}
+.panel-footer {
+    background-color:#34495e;
+    color:#ffffff;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -43,6 +81,10 @@ body {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+}
+
+.whiteBackground {
+    background-color: #ffffff;
 }
 
 .container-narrow > hr {
@@ -95,7 +137,7 @@ body {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color:#555555;
+  color:#34495e;
 }
 .navbar-default .navbar-nav > li > a {
   color:#fafafa;
@@ -112,14 +154,14 @@ body {
   outline:0;
 }
 .navbar-default {
-  background-color:#6abb92;
+  background-color:#2ecc71;
   border-color:#fafafa;
   height:40px;
   border:none;
   border-radius:0;
 }
 .giftableFooter {
-  background-color:#555555;
+  background-color:#2c3e50;
   min-height:200px;
 }
 /*Main page*/
@@ -146,18 +188,18 @@ body {
   background-size: cover;
 }
 .peopleRow {
-    background-color: #6abb92;
+    background-color: #2ecc71;
     color: #fafafa;
     padding-top: 5%;
 }
 .eventRow {
-  background-color:#6abb92;
+  background-color:#2ecc71;
 }
 .eventPanel {
     margin:20px;
 }
 .reminderRow {
-  background-color:#6abb92;
+  background-color:#2ecc71;
   padding-bottom:10%;
 }
 .peopleRowLead {
@@ -255,20 +297,20 @@ body {
     position: relative;
 }
 .giftablePrimaryColor {
-  background-color:#6ABB92;
+  background-color:#2ecc71;
   color:#fafafa;
   border-color:#6ABB92;
   transition: all 0.2s ease;
 }
 .giftablePrimaryColor:hover {
   background-color:#ffffff;
-  color:#6ABB92!important;
-  border: 1px dashed #6abb92;
+  color:#2ecc71!important;
+  border: 1px dashed #2ecc71;
 }
 .giftablePrimarySolidColor {
-  background-color:#6ABB92;
+  background-color:#2ecc71;
   color:#fafafa;
-  border-color:#6ABB92;
+  border-color:#2ecc71;
   transition: all 0.2s ease;
 }
 .giftablePrimarySolidColor:hover {
@@ -289,14 +331,16 @@ body {
 }
 /*Person Page*/
 .personHeader {
-    background: #ffffff none repeat scroll 0 0;
+    background: #ecf0f1 none repeat scroll 0 0;
     margin: 10px 0;
     padding:15px;
     border:1px solid #d2d2d2;
     border-radius:5px;
+    color:#2c3e50;
 }
 .gifteeName {
     margin-top:5px;
+    font-weight:700;
 }
 .address {
     margin-left:10px;
@@ -328,7 +372,7 @@ body {
     width: 100px;
 }
 .giftCount {
-    color: #6abb92;
+    color: #2ecc71;
     font-size: 32px;
     padding-top: 10px;
 }
@@ -338,7 +382,7 @@ body {
     line-height:22px;
 }
 .eventCount {
-    color: #6abb92;
+    color: #2ecc71;
     font-size: 32px;
     padding-top: 10px;
 }
@@ -357,7 +401,7 @@ body {
     margin-right:5px;
 }
 .editPersonBtn {
-    background-color:#f0ad4e;
+    background-color:#e67e22;
     border-radius: 50%;
     color: #fff;
     height: 22px;
@@ -365,10 +409,10 @@ body {
 }
 .editPersonBtn:hover {
     cursor:pointer;
-    background-color:#ec971f;
+    background-color:#d35400;
 }
 .deletePersonBtn {
-    background-color: #d9534f;
+    background-color: #e74c3c;
     border-radius: 50%;
     color: #fff;
     height: 22px;
@@ -376,18 +420,17 @@ body {
 }
 .deletePersonBtn:hover {
     cursor:pointer;
-    background-color:#c9302c;
+    background-color:#c0392b;
 }
 .hiddenDayCounter {
     transition: all .2s ease-in-out;
-    background-color: #6ABB92;
+    background-color: #2c3e50;
     height: 100%;
-    left: 0;
+    right: 0;
     position: absolute;
     top: 0;
     width: 0px;
     color:#fafafa;
-    box-shadow:0 0 3px #000 inset;
 }
 .daysUntilContainer {
     overflow:hidden;
@@ -407,14 +450,38 @@ body {
     width:400px;
 }
 .gift .red {
-    background-color:#d9534f;
+    background-color:#e74c3c;
+}
+.gift:hover .red .daysLabel:before {
+    font-family:fontawesome;
+    content:"\f06a";
+    position: absolute;
+    font-size: 24px;
+    margin-left: -30px;
+}
+.gift:hover .green .daysLabel:before {
+    font-family:fontawesome;
+    content:"\f164";
+    position: absolute;
+    top: 14px;
+    left: 100px;
+    font-size: 24px;
+    margin-left: -30px;
+}
+.gift:hover .yellow .daysLabel:before {
+    font-family:fontawesome;
+    content:"\f071";
+    position: absolute;
+    font-size: 24px;
+    margin-left: -30px;
 }
 .gift .yellow {
     background-color:#f1c40f;
 }
 .gift .green {
-    background-color: #6ABB92;
+    background-color: #2ecc71;
 }
+
 .addEventCard {
     background-color: #fff !important;
     border: 7px dashed #f5f5f5;
@@ -450,9 +517,9 @@ body {
 }
 
 #toast-container .giftable-success {
-    background-color:#6ABB92;
+    background-color:#2ecc71;
     color:#fafafa;
-    border-color:#6ABB92;
+    border-color:#27ae60;
     box-shadow: 0px 0px 7px -2px #000000;
 }
 #toast-container .giftable-success:before {
