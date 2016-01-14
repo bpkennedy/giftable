@@ -8,7 +8,7 @@
  * Controller of the giftableApp
  */
 angular.module('giftableApp')
-  .controller('PersonCtrl', function ($scope, toastr, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location, Analytics) {
+  .controller('PersonCtrl', function ($scope, toastr, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location, Analytics, moment) {
     var authData = Ref.getAuth();
     $scope.id = $routeParams.id;
     $scope.giftsRef = new Firebase.util.NormalizedCollection(
@@ -47,6 +47,7 @@ angular.module('giftableApp')
 
     var eventList = Ref.child('person/' + $scope.id + '/events');
     var giftList = Ref.child('person/' + $scope.id + '/gifts');
+    var today = moment(new Date());
 
 
     $scope.deleteGiftee = function() {
@@ -171,6 +172,23 @@ angular.module('giftableApp')
       }
     };
 
+    $scope.calculateDaysAway = function(eventDate) {
+        var eventDay = moment(eventDate),
+            daysUntil = eventDay.diff(today, 'days');
+        return daysUntil;
+    };
+
+    $scope.getProximityColor = function(eventDate) {
+        var days = $scope.calculateDaysAway(eventDate);
+        if (days > 14) {
+            return 'green';
+        } else if (days > 7 && days < 14) {
+            return 'yellow';
+        } else if (days < 7){
+            return 'red';
+        }
+    };
+
     function switchRouteToPeople() {
       $location.path('/people');
     }
@@ -181,4 +199,6 @@ angular.module('giftableApp')
         $scope.err = null;
       }, 5000);
     }
+
+
   });

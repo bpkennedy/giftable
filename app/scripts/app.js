@@ -23,5 +23,6 @@ angular.module('giftableApp', [
     'ui.bootstrap',
     'toastr',
     'angular-google-analytics',
-    'ngSanitize'
+    'ngSanitize',
+    'angularMoment'
   ]);

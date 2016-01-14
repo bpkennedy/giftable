@@ -56,15 +56,20 @@
           </div>
           <div class="list-group">
             <a class="list-group-item gift" ng-click="goToEvent(event.$id)" ng-repeat="event in joinedEvents | filter: searchEvents">
-              <div class="row">
+              <div class="row giftInfo">
                 <div class="col-sm-6">
                   <h4 class="list-group-item-heading">{{event.eventTitle}}</h4>
-                  <p class="list-group-item-text">{{event.eventDate | date:'dd MMM'}}</p>
+                  <p class="list-group-item-text">{{event.eventDate | date:'longDate'}}</p>
                 </div>
                 <!--<div class="col-sm-6">
                   <p class="list-group-item-text">Status: {{gift.status}}</p>
                   <p class="list-group-item-text">Cost: {{gift.cost | currency}}</p>
               </div>-->
+              </div>
+              <div class="hiddenDayCounter" ng-class="getProximityColor(event.eventDate)">
+                  <div class="daysUntilContainer">
+                      <div><span ng-bind="calculateDaysAway(event.eventDate)"></span> days away</div>
+                  </div>
               </div>
             </a>
           </div>
