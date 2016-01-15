@@ -194,6 +194,16 @@ angular.module('giftableApp')
         }
     };
 
+    $scope.getGiftStatusColor = function(status) {
+        var colorClasses = {
+            'new':'newGift',
+            'ordered':'orderedGift',
+            'ready':'readyGift',
+            'given':'givenGift'
+        };
+        return colorClasses[status];
+    };
+
     function switchRouteToPeople() {
       $location.path('/people');
     }
