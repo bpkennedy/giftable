@@ -44,6 +44,8 @@ angular.module('giftableApp')
     $scope.joinedEvents = $firebaseArray($scope.eventsRef);
 
     $scope.events = $firebaseArray(Ref.child('person/' + $scope.id + '/events'));
+    $scope.max = 5;
+    $scope.isReadonly = true;
 
     var eventList = Ref.child('person/' + $scope.id + '/events');
     var giftList = Ref.child('person/' + $scope.id + '/gifts');

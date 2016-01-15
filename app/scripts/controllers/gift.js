@@ -13,6 +13,10 @@ angular.module('giftableApp')
     $scope.test = 'https://www.google.com';
     $scope.giftId = $routeParams.id;
     $scope.gift = new GiftSvc($scope.giftId);
+    $scope.rate = 7;
+    $scope.max = 5;
+    $scope.isReadonly = true;
+
     var giftRef = Ref.child('gifts/' + $scope.giftId);
     var personGift = {};
 
@@ -23,9 +27,16 @@ angular.module('giftableApp')
 
 
     $scope.editMode = true;
+
+    $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+    };
+
     $scope.edit = function(){
        $scope.editMode = false;
-   };
+       $scope.isReadonly = false;
+    };
 
     $scope.save = function(gift){
         giftRef.update({
@@ -41,6 +52,7 @@ angular.module('giftableApp')
 
     $scope.cancel = function() {
         $scope.editMode = true;
+        $scope.isReadyonly = true;
     };
 
     $scope.return = function(createdFor) {
