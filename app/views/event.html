@@ -18,7 +18,7 @@
                                 <div class="form-group">
                                   <label for="eventDate">Event Date</label>
                                   <p class="form-group relative">
-                                    <input type="text" class="form-control" name="eventDate" id="eventDate" datepicker-popup="{{format}}" ng-model="event.eventDate" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" close-text="Close" ng-required="true" />
+                                    <input type="text" class="form-control" name="eventDate" id="eventDate" uib-datepicker-popup="{{format}}" ng-model="event.eventDate" is-open="status.openedEventTime" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" close-text="Close" ng-required="true" />
                                     <span class="input-group-btn calendarIcon">
                                       <button type="button" class="btn btn-default" ng-click="openEvent()"><i class="glyphicon glyphicon-calendar"></i></button>
                                     </span>
