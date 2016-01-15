@@ -61,10 +61,6 @@
                   <h4 class="list-group-item-heading">{{event.eventTitle}}</h4>
                   <p class="list-group-item-text">{{event.eventDate | date:'longDate'}}</p>
                 </div>
-                <!--<div class="col-sm-6">
-                  <p class="list-group-item-text">Status: {{gift.status}}</p>
-                  <p class="list-group-item-text">Cost: {{gift.cost | currency}}</p>
-              </div>-->
               </div>
               <div class="hiddenDayCounter" ng-class="getProximityColor(event.eventDate)">
                   <div class="daysUntilContainer">
@@ -112,7 +108,6 @@
                   </p>
                 </div>
                 <div class="col-sm-6">
-                  <!--<p class="list-group-item-text">Status: {{gift.status}}</p>-->
                   <p class="list-group-item-text giftCost">{{gift.cost | currency}}</p>
                 </div>
               </div>
