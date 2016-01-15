@@ -522,6 +522,27 @@ body {
     content:"\f0f4";
     padding:9px 9px 9px 7px;
 }
+.ratingControl i {
+    color: #2980b9;
+    font-size: 30px;
+    padding: 5px;
+}
+.ratingControl i:hover {
+    cursor:pointer;
+}
+.ratingContainer i {
+    color: #2980b9;
+    font-size: 18px;
+    margin: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: auto;
+}
+.giftCost {
+    font-size: 30px;
+    line-height: 30px !important;
+    padding-top: 10px;
+}
 .addEventCard {
     background-color: #fff !important;
     border: 7px dashed #f5f5f5;

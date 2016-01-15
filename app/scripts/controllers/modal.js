@@ -13,6 +13,14 @@ angular.module('giftableApp')
     var afterTomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     afterTomorrow.setDate(tomorrow.getDate() + 2);
+    $scope.rate = 7;
+    $scope.max = 5;
+    $scope.isReadonly = false;
+
+    $scope.hoveringOver = function(value) {
+    $scope.overStar = value;
+    $scope.percent = 100 * (value / $scope.max);
+    };
 
     $scope.imageCropStep = '1';
     $scope.events = [
