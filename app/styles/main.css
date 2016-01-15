@@ -108,6 +108,9 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+.giftableNav .active a:focus {
+    color:#2c3e50!important;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -481,7 +484,44 @@ body {
 .gift .green {
     background-color: #2ecc71;
 }
-
+.itemContainerTitle {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 34px;
+    text-align: center;
+}
+.giftStatus:after {
+    border: 2px solid #2c3e50;
+    border-radius: 50%;
+    color: #2ecc71;
+    font-family: FontAwesome;
+    font-size: 30px;
+    height: 50px;
+    line-height: 27px;
+    position: absolute;
+    top: 8px;
+    left:10px;
+    width: 50px;
+}
+.giftStatus {
+    padding-left:70px!important;
+}
+.givenGift:after {
+    content: "\f00c";
+    padding: 9px;
+}
+.newGift:after {
+    content:"\f0eb";
+    padding: 9px 9px 9px 14px;
+}
+.orderedGift:after {
+    content:"\f072";
+    padding:11px 9px 9px 10px;
+}
+.readyGift:after {
+    content:"\f0f4";
+    padding:9px 9px 9px 7px;
+}
 .addEventCard {
     background-color: #fff !important;
     border: 7px dashed #f5f5f5;
