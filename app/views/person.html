@@ -54,7 +54,10 @@
               </div>
             </form>
           </div>
-          <div class="list-group">
+          <div class="emptyResults" ng-show="!joinedEvents.length">
+              <div>{{person.firstName}} has no Events!  Add some.</div>
+          </div>
+          <div class="list-group" ng-show="joinedEvents.length">
             <a class="list-group-item gift" ng-click="goToEvent(event.$id)" ng-repeat="event in joinedEvents | filter: searchEvents">
               <div class="row giftInfo">
                 <div class="col-sm-6">
@@ -96,7 +99,10 @@
               </div>
             </form>
           </div>
-          <div class="list-group">
+          <div class="emptyResults" ng-show="!joinedGifts.length">
+              <div>{{person.firstName}} has no Gifts!  Add some.</div>
+          </div>
+          <div class="list-group" ng-show="joinedGifts.length">
             <a class="list-group-item gift giftStatus" ng-class="getGiftStatusColor(gift.status)" ng-click="goToGift(gift.$id)" ng-repeat="gift in joinedGifts | filter: searchGifts">
               <div class="row">
                 <div class="col-sm-6">
