@@ -18,7 +18,7 @@ As new bower modules are installed, using the common `bower install xxx --save`,
 
 We can use the Yo/Angularfire generator to perform a Build which will create the `dist` folder.  You can do `grunt build` to do this.
 
-Finally, this application is being hosted in Firebase's free app hosting.  Continuous Integration is stup with Travis CI.  And simply doing a commit or merge to Master will initiate Travis to do a Build and then a `firebase deploy` after it is done.  This will deploy to the url: `giftable.firebaseapp.com`.
+Finally, this application is being hosted in Firebase's free app hosting.  Continuous Integration is stup with Travis CI.  And simply doing a commit or merge to Master will initiate Travis to do a Build and then a `firebase deploy` after it is done.  This will deploy to the url: https://giftable.firebaseap.com
 
 ## Testing
 
