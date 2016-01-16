@@ -9,6 +9,7 @@
  */
 angular.module('giftableApp')
   .controller('PeopleCtrl', function ($scope, toastr, Ref, $firebaseArray, $timeout, $location, ModalService, Analytics) {
+    $scope.pageClass = 'page-people';
 
     var authData = Ref.getAuth();
     $scope.people = [];

@@ -1,4 +1,4 @@
-<div class="container whiteBackground">
+<div class="container">
   <div class="row personHeader">
       <div class="col-md-4">
           <div class="">
@@ -9,8 +9,8 @@
                   <div></div>
               </div>
               <div class="personEditControls">
-                  <div class="editPersonBtn"><i class="fa fa-pencil"></i></div>
-                  <div class="deletePersonBtn"><i class="fa fa-trash-o"></i></div>
+                  <div class="editPersonBtn" tooltip-placement="left" tooltip-popup-delay='700' uib-tooltip="Edit Giftee"><i class="fa fa-pencil"></i></div>
+                  <div class="deletePersonBtn" tooltip-placement="right" tooltip-popup-delay='700' uib-tooltip="Delete Giftee"><i class="fa fa-trash-o"></i></div>
               </div>
           </div>
       </div>
@@ -46,7 +46,7 @@
                   </div>
                 </div>
                 <div class="col-xs-3">
-                  <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addEvent()">
+                  <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addEvent()" tooltip-popup-delay='700' uib-tooltip="Create a new event">
                     <i class="fa fa-plus"></i>
                     Add Event
                   </a>
@@ -88,7 +88,7 @@
                   </div>
                 </div>
                 <div class="col-xs-3">
-                  <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addGift()">
+                  <a class="btn btn-primary btn-block giftablePrimaryColor" ng-click="addGift()" tooltip-popup-delay='700' uib-tooltip="Create a new gift">
                     <i class="fa fa-plus"></i>
                     Add Gift
                   </a>

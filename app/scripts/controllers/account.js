@@ -8,6 +8,7 @@
  */
 angular.module('giftableApp')
   .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout, toastr, Analytics) {
+    $scope.pageClass = 'page-account';
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
     $scope.messages = [];

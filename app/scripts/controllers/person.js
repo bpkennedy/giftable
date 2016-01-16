@@ -10,6 +10,7 @@
 angular.module('giftableApp')
   .controller('PersonCtrl', function ($scope, toastr, $routeParams, PersonSvc, Ref, $firebaseArray, ModalService, $timeout, $location, Analytics, moment) {
     var authData = Ref.getAuth();
+    $scope.pageClass = 'page-person';
     $scope.id = $routeParams.id;
     $scope.giftsRef = new Firebase.util.NormalizedCollection(
       [Ref.child('person/' + $scope.id + '/gifts'), 'person'],
