@@ -15,6 +15,12 @@ html, body {
 body {
   padding: 0;
 }
+input, textarea, select {
+    font-weight:300;
+}
+label {
+    font-weight: 900;
+}
 .page {
     bottom:0;
     padding-top:50px;
@@ -122,7 +128,9 @@ body {
 .navbar{
   margin-bottom:0;
 }
-
+.glyphicon {
+    left:2px;
+}
 .giftableNav > li > a {
     line-height:18px;
 }
@@ -671,6 +679,10 @@ body {
     position: absolute;
     right: 38px;
     top: 0;
+}
+.calendarIcon .btn {
+    border-radius: 0 4px 4px 0;
+    width:43px;
 }
 
 #toast-container .giftable-success {
