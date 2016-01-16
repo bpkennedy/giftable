@@ -50,26 +50,88 @@ angular.module('giftableApp')
 
     var eventList = Ref.child('person/' + $scope.id + '/events');
     var giftList = Ref.child('person/' + $scope.id + '/gifts');
+    var globalEventsRef = Ref.child('events');
+    var globalGiftsRef = Ref.child('gifts');
     var today = moment(new Date());
 
-
-    $scope.deleteGiftee = function() {
+    $scope.editGiftee = function() {
       ModalService.showModal({
-        templateUrl: 'views/deleteGiftee.html',
-        controller: 'ModalCtrl'
+        templateUrl: 'views/editGiftee.html',
+        controller: 'PersonModalCtrl',
+        inputs: {
+            firstName: $scope.person.firstName,
+            lastName: $scope.person.lastName,
+            city: $scope.person.city,
+            state: $scope.person.state,
+            address: $scope.person.address,
+            zipcode: $scope.person.zipcode
+        }
       }).then(function(modal) {
+
         //it's a bootstrap element, use 'modal' to show it
         modal.element.modal();
         modal.close.then(function(result) {
-          $scope.formData = result;
-          if ($scope.formData === 'Delete' && $scope.person.createdBy === authData.uid) {
-              $scope.people.$remove($scope.people.$getRecord($scope.id)).then(function() {
-                switchRouteToPeople();
-              }).catch(alert);
-          }
+            $scope.formData = result;
+            if ($scope.formData !== 'Cancel') {
+                $scope.person.firstName = result.firstName;
+                $scope.person.lastName = result.lastName;
+                $scope.person.city = result.city || '';
+                $scope.person.state = result.state;
+                $scope.person.address = result.address || '';
+                $scope.person.zipcode = result.zipcode || '';
+                $scope.person.$save()
+                  .catch(alert).then(function(){
+                    toastr.success(result.firstName + ' updated');
+                    Analytics.trackEvent('giftee', 'updated', result.firstName + ' ' + result.lastName);
+                });
+            }
         });
       });
     };
+
+  $scope.deleteGiftee = function() {
+    ModalService.showModal({
+      templateUrl: 'views/confirm.html',
+      controller: 'ModalCtrl'
+    }).then(function(modal) {
+
+      //it's a bootstrap element, use 'modal' to show it
+      modal.element.modal();
+      modal.close.then(function(result) {
+          if (result.confirm === 'yes') {
+              //handle the firebase deletion now for events, gifts, and the person
+              deleteGifteeEvents();
+              deleteGifteeGifts();
+              deleteGiftee();
+          }
+      });
+    });
+  };
+
+  function deleteGifteeEvents() {
+      var collectedEvents = {};
+      $scope.joinedEvents.forEach(function(event) {
+          collectedEvents[event.$id] = null;
+          globalEventsRef.update(collectedEvents);
+      });
+  }
+
+  function deleteGifteeGifts() {
+      var collectedGifts = {};
+      $scope.joinedGifts.forEach(function(gift) {
+          collectedGifts[gift.$id] = null;
+          globalGiftsRef.update(collectedGifts);
+      });
+  }
+
+  function deleteGiftee() {
+      var personName = $scope.person.firstName;
+      var personLastname = $scope.person.lastName;
+      $scope.person.$remove();
+      $location.path('/people');
+      toastr.success(personName + ' has been deleted');
+      Analytics.trackEvent('giftee', 'deleted', personName + ' ' + personLastname);
+  }
 
     $scope.addGift = function() {
       ModalService.showModal({
@@ -206,10 +268,6 @@ angular.module('giftableApp')
         };
         return colorClasses[status];
     };
-
-    function switchRouteToPeople() {
-      $location.path('/people');
-    }
 
     function alert(msg) {
       $scope.err = msg;
