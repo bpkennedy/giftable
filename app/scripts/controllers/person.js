@@ -91,8 +91,16 @@ angular.module('giftableApp')
 
   $scope.deleteGiftee = function() {
     ModalService.showModal({
-      templateUrl: 'views/confirm.html',
-      controller: 'ModalCtrl'
+      templateUrl: 'views/deleteGiftee.html',
+      controller: 'PersonModalCtrl',
+      inputs: {
+          firstName: $scope.person.firstName,
+          lastName: $scope.person.lastName,
+          city: $scope.person.city,
+          state: $scope.person.state,
+          address: $scope.person.address,
+          zipcode: $scope.person.zipcode
+      }
     }).then(function(modal) {
 
       //it's a bootstrap element, use 'modal' to show it
