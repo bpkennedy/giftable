@@ -20,6 +20,11 @@ angular.module('giftableApp')
         personEvent = Ref.child('person/' + $scope.event.createdFor + '/events/' + $scope.eventId);
     }, 500);
 
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+    $scope.format = 'MMMM dd, yyyy';
 
     $scope.status = {
       opened: false

@@ -37,8 +37,7 @@ angular.module('giftableApp')
         formatYear: 'yy',
         startingDay: 1
     };
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
+    $scope.format = 'MMMM dd, yyyy';
     $scope.status = {
         opened: false
     };

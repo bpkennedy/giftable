@@ -84,14 +84,14 @@ body {
     to      { transform: translateY(100%); }
 }
 
-.ng-enter       { z-index: 8888; }
-.ng-leave       { z-index: 9999; }
+.ng-enter       { z-index: 7777; }
+.ng-leave       { z-index: 8888; }
 
 /* page specific animations ------------------------ */
 
 /* home -------------------------- */
-.page-main.ng-enter         { animation: scaleUp 0.5s both ease-in; }
-.page-main.ng-leave         { animation:slideOutLeft 0.5s both ease-in; }
+.page-main.ng-enter         { animation: scaleUp 0.5s both ease-in; z-index:9999;}
+.page-main.ng-leave         { animation:slideOutLeft 0.5s both ease-in;}
 
 /* about ------------------------ */
 .page-people.ng-enter        { animation:slideInLeft 0.5s both ease-in; }
@@ -102,19 +102,21 @@ body {
 .page-person.ng-leave        { animation:slideInDown 0.5s both ease-in; }
 
 .page-gift.ng-enter        { animation:slideInUp 0.5s both ease-in; }
-.page-gift.ng-leave        { animation:slideInDown 0.5s both ease-in; z-index: 7777;}
+.page-gift.ng-leave        { animation:slideInDown 0.5s both ease-in; z-index: 6666;}
 
 .page-event.ng-enter        { animation:slideInUp 0.5s both ease-in; }
-.page-event.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+.page-event.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 6666;}
 
 .page-account.ng-enter        { animation:slideInUp 0.5s both ease-in; }
-.page-account.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+.page-account.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 6666;}
 
 .page-login.ng-enter        { animation:slideInUp 0.5s both ease-in; }
-.page-login.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+.page-login.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 6666;}
 
 .page-update-password.ng-enter        { animation:slideInUp 0.5s both ease-in; }
-.page-update-password.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+.page-update-password.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 6666;}
+
+
 
 /*Bootstrap overrides*/
 .navbar{
