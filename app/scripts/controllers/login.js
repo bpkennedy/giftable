@@ -8,6 +8,7 @@
  */
 angular.module('giftableApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService) {
+    $scope.pageClass = 'page-login';
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       if (!email) {

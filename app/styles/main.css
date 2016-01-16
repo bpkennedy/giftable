@@ -15,6 +15,106 @@ html, body {
 body {
   padding: 0;
 }
+.page {
+    bottom:0;
+    padding-top:50px;
+    position:absolute;
+    top:0;
+    width:100%;
+}
+.header {
+    z-index:10;
+    position: relative;
+}
+/* ANIMATIONS
+============================================================================= */
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes rotateFall {
+    0%      { transform: rotateZ(0deg); }
+    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40%     { transform: rotateZ(17deg); }
+    60%     { transform: rotateZ(16deg); }
+    100%    { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutRight {
+    to      { transform: translateX(100%); }
+}
+
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+    to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(100%); }
+    to      { transform: translateX(0); }
+}
+
+/* slide in from the left */
+@keyframes slideInLeft {
+    from    { transform:translateX(-100%); }
+    to      { transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform:translateY(100%); }
+    to      { transform: translateY(0); }
+}
+
+/* slide down from the top */
+@keyframes slideInDown {
+    from    { transform:translateY(0%); }
+    to      { transform: translateY(100%); }
+}
+
+.ng-enter       { z-index: 8888; }
+.ng-leave       { z-index: 9999; }
+
+/* page specific animations ------------------------ */
+
+/* home -------------------------- */
+.page-main.ng-enter         { animation: scaleUp 0.5s both ease-in; }
+.page-main.ng-leave         { animation:slideOutLeft 0.5s both ease-in; }
+
+/* about ------------------------ */
+.page-people.ng-enter        { animation:slideInLeft 0.5s both ease-in; }
+.page-people.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }
+
+/* contact ---------------------- */
+.page-person.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-person.ng-leave        { animation:slideInDown 0.5s both ease-in; }
+
+.page-gift.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-gift.ng-leave        { animation:slideInDown 0.5s both ease-in; z-index: 7777;}
+
+.page-event.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-event.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+
+.page-account.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-account.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+
+.page-login.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-login.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
+
+.page-update-password.ng-enter        { animation:slideInUp 0.5s both ease-in; }
+.page-update-password.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 7777;}
 
 /*Bootstrap overrides*/
 .navbar{
@@ -81,10 +181,6 @@ body {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
-}
-
-.whiteBackground {
-    background-color: #ffffff;
 }
 
 .container-narrow > hr {

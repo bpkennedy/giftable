@@ -9,6 +9,7 @@
  */
 angular.module('giftableApp')
   .controller('MainCtrl', function ($scope, $location) {
+    $scope.pageClass = 'page-main';
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

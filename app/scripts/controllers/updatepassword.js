@@ -9,6 +9,7 @@
  */
 angular.module('giftableApp')
   .controller('UpdatepasswordCtrl', function ($scope, Auth, Ref, toastr, $location, Analytics) {
+      $scope.pageClass = 'page-update-password';
       $scope.updatePassword = function(email, oldPass, newPass, confirm) {
         $scope.err = null;
         if( !oldPass || !newPass ) {

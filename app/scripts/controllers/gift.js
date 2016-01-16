@@ -9,6 +9,7 @@
  */
 angular.module('giftableApp')
   .controller('GiftCtrl', function ($scope, $window, $timeout, Ref, $routeParams, GiftSvc, ModalService, $location, toastr, Analytics) {
+    $scope.pageClass = 'page-gift';
     //var authData = Ref.getAuth();
     $scope.test = 'https://www.google.com';
     $scope.giftId = $routeParams.id;
