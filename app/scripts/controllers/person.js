@@ -36,7 +36,7 @@ angular.module('giftableApp')
       {'key':'person.$value','alias':'test'}
     ).ref();
 
-    $scope.person = new PersonSvc($scope.id);
+    $scope.person = PersonSvc.getPerson($scope.id);
     $scope.people = $firebaseArray(Ref.child('person').orderByChild('createdBy').equalTo(authData.uid));
     $scope.globalGifts = $firebaseArray(Ref.child('gifts'));
     $scope.globalEvents = $firebaseArray(Ref.child('events'));
