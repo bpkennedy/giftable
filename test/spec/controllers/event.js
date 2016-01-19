@@ -38,6 +38,16 @@ describe('Controller: EventCtrl', function () {
         scope.openEvent();
         expect(scope.status.openedEventTime).toBe(true);
       });
+      it('should have editMode false by default and true on edit', function () {
+        expect(scope.editMode).toBe(false);
+        scope.edit();
+        expect(scope.editMode).toBe(true);
+      });
+      it('should set edit mode to Cancel when cancel', function () {
+        scope.editMode = true;
+        scope.cancel();
+        expect(scope.editMode).toBe(false);
+      });
   });
 
 });
