@@ -8,10 +8,25 @@
  * Service in the giftableApp.
  */
 angular.module('giftableApp')
-  .service('EventSvc', function ($firebaseObject) {
-    var baseRef = new Firebase('https://giftable.firebaseio.com').child('events');
+  .service('EventSvc', function (Ref, $firebaseArray, $firebaseObject) {
+    var allEvents = Ref.child('events');
 
-    return function(eventId) {
-      return $firebaseObject(baseRef.child(eventId));
+    function getEvents() {
+        return $firebaseArray(allEvents);
+    }
+
+    function getEventRaw(eventId) {
+        return allEvents.child(eventId);
+    }
+
+    function getEvent(eventId) {
+        return $firebaseObject(allEvents.child(eventId));
+    }
+
+    return {
+        getEvents: getEvents,
+        getEvent: getEvent,
+        getEventRaw: getEventRaw
     };
+
   });

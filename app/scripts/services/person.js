@@ -8,11 +8,32 @@
  * Service in the giftableApp.
  */
 angular.module('giftableApp')
-  .service('PersonSvc', function ($firebaseObject) {
-    var baseRef = new Firebase('https://giftable.firebaseio.com').child('person');
+  .service('PersonSvc', function (Ref, $firebaseArray, $firebaseObject) {
+    var allPersons = Ref.child('person');
 
-    return function(personId) {
-      return $firebaseObject(baseRef.child(personId));
+    function getPersons() {
+        return $firebaseArray(allPersons);
+    }
+
+    function getPerson (personId) {
+        return $firebaseObject(allPersons.child(personId));
+    }
+
+    function getPersonEvents (personId) {
+        return $firebaseArray(allPersons.child(personId + '/events'));
+    }
+
+    function getPersonEvent (personId, eventId) {
+        var test = allPersons.child(personId + '/events/' + eventId);
+        console.log(test.toString());
+        return $firebaseObject(allPersons.child(personId + '/events/' + eventId));
+    }
+
+    return {
+        getPerson: getPerson,
+        getPersons: getPersons,
+        getPersonEvents: getPersonEvents,
+        getPersonEvent: getPersonEvent
     };
 
   });

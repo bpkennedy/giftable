@@ -17,7 +17,27 @@ describe('Controller: EventCtrl', function () {
     });
   }));
 
-  it('should find some number', function () {
-    expect(true).toBe(true);
+  describe('On init', function () {
+      it('scope page class to be page-event', function () {
+        expect(scope.pageClass).toBe('page-event');
+      });
+      it('scope edit mode to be true by default', function () {
+        expect(scope.editMode).toBe(false);
+      });
+      it('scope eventId should be routeParam', function () {
+        expect(scope.eventId).toBe(1);
+      });
+      it('scope status opened should be false', function () {
+        expect(scope.status.opened).toBe(false);
+      });
+      it('open notification should set status to openedNotification', function () {
+        scope.openNotification();
+        expect(scope.status.openedNotification).toBe(true);
+      });
+      it('open event should set status to openedEventTime', function () {
+        scope.openEvent();
+        expect(scope.status.openedEventTime).toBe(true);
+      });
   });
+
 });
