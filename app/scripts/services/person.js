@@ -8,7 +8,7 @@
  * Service in the giftableApp.
  */
 angular.module('giftableApp')
-  .service('PersonSvc', function (Ref, $firebaseArray, $firebaseObject) {
+  .factory('PersonSvc', function (Ref, $firebaseArray, $firebaseObject) {
     var allPersons = Ref.child('person');
 
     function getPersons() {
