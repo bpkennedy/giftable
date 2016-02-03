@@ -88,7 +88,7 @@ angular.module('giftableApp')
 
   // configure views; whenAuthenticated adds a resolve method to ensure users authenticate
   // before trying to access that route
-  .config(['$routeProvider', function($routeProvider) {
+  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -128,6 +128,11 @@ angular.module('giftableApp')
         controller: 'EventCtrl'
       })
       .otherwise({redirectTo: '/'});
+
+
+      $locationProvider
+        .html5Mode({enabled:true,requireBase:true})
+        .hashPrefix('!');
   }])
 
   /**
