@@ -10,6 +10,7 @@
     "morgan": "^1.6.1",
     "nodemailer": "^2.0.0",
     "nodemon": "^1.8.1",
+    "prerender-node": "^2.2.0",
     "requirejs": "^2.1.22",
     "serve-favicon": "^2.3.0"
   },

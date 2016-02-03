@@ -5,6 +5,7 @@
     <title>Giftable &#183; Don't forget the people you love.</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta name="fragment" content="!">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -24,6 +25,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700' rel='stylesheet' type='text/css'>
     <!-- Doorbell.io for user feedback -->
     <script type="text/javascript">window.doorbellOptions={appKey:'shvZ4ep3ApKJh79rjT11awBWukKoETlKqlKzgJdg7KlxaKSkQO7FPmnSE2weKbWz'};(function(d,t){var g=d.createElement(t);g.id='doorbellScript';g.type='text/javascript';g.async=true;g.src='https://embed.doorbell.io/button/2909?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g)}(document,'script'));</script>
+    <base href="/">
   </head>
   <body ng-app="giftableApp">
     <!--[if lt IE 7]>
@@ -42,7 +44,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="#/">giftable</a>
+          <a class="navbar-brand" href="/">giftable</a>
         </div>
 
         <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl">
@@ -52,7 +54,7 @@
             <!-- //angularfire -->
             <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
             <li ng-class="{ active: isCurrentPath('/people') || isCurrentPath('/login') }">
-              <a ng-show-auth="" ng-href="#/people">
+              <a ng-show-auth="" ng-href="/people">
                 <i class="fa fa-users"></i>
                 people
               </a>
@@ -60,11 +62,11 @@
           </ul>
           <ul class="nav navbar-nav pull-right giftableNav">
             <li ng-class="{ active: isCurrentPath('/account') || isCurrentPath('/login') }">
-              <a ng-hide-auth="" href="#/login">
+              <a ng-hide-auth="" href="/login">
                 <i class="fa fa-lock"></i>
                 log in
               </a>
-              <a ng-show-auth="" href="#/account">
+              <a ng-show-auth="" href="/account">
                 <i class="fa fa-user"></i>
                 {{currentUser.name}}
               </a>
