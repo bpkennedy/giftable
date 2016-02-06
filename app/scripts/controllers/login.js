@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module('giftableApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService, postmail) {
     $scope.pageClass = 'page-login';
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
@@ -77,6 +77,7 @@ angular.module('giftableApp')
               def.reject(err);
             }
             else {
+              sendWelcomeEmail(email, name);
               toastr.success('Account created');
               Analytics.trackEvent('profile', 'account created', user.uid);
               def.resolve(ref);
@@ -86,6 +87,14 @@ angular.module('giftableApp')
         return def.promise;
       }
     };
+
+    function sendWelcomeEmail(email, name) {
+        var emailData = {
+            emailAddress: email,
+            displayName: name
+        };
+        postmail.registerEmail(emailData);
+    }
 
     function redirect() {
       $location.path('/people');
