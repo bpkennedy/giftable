@@ -2,6 +2,7 @@
   "name": "giftable",
   "version": "0.0.0",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "ejs": "^2.4.1",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
