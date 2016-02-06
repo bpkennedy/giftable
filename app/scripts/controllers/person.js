@@ -154,9 +154,9 @@ angular.module('giftableApp')
           if ($scope.formData !== 'Cancel') {
             $scope.globalGifts.$add({
               title: result.title,
-              description: result.description,
+              description: result.description || '',
               url: result.url || '',
-              cost: result.cost,
+              cost: result.cost || '',
               interestLevel: result.interestLevel || '',
               status: 'new',
               createdAt: new Date().toJSON(),
@@ -187,7 +187,7 @@ angular.module('giftableApp')
           if ($scope.formData !== 'Cancel') {
             $scope.globalEvents.$add({
               eventTitle: result.title,
-              eventDescription: result.description,
+              eventDescription: result.description || '',
               eventDate: result.eventTime.toJSON(),
               createdAt: new Date().toJSON(),
               createdFor: $scope.id,

@@ -3,7 +3,7 @@
       <div class="col-md-4">
           <div class="">
               <h2 class="gifteeName">{{person.firstName}}  {{person.lastName}}</h2>
-              <div class="details">
+              <div class="details" ng-if="person.address || person.city || person.state || person.zipCode">
                   <div class="address">{{person.address}} {{person.city}} {{person.state}}, {{person.zipcode}}</div>
                   <div></div>
                   <div></div>
