@@ -26,7 +26,7 @@
         <p>
           <button  class="btn btn-primary giftablePrimarySolidColor" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
           <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
-          <button  class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-cloak ng-show="createMode" ng-click="createAccount(email, pass, name, confirm)">Create Account</button>
+          <button  class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-cloak ng-show="createMode" ng-click="sendWelcomeEmail(email, pass, name)">Create Account</button>
           <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
         </p>
         <a ng-click="forgotPassword()">Forgot Password?</a>
