@@ -130,9 +130,9 @@ angular.module('giftableApp')
       .otherwise({redirectTo: '/'});
 
 
-      $locationProvider
+      /*$locationProvider
         .html5Mode({enabled:true,requireBase:true})
-        .hashPrefix('!');
+        .hashPrefix('!');*/
   }])
 
   /**
