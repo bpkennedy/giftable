@@ -47,5 +47,8 @@
         "./fonts/FontAwesome.otf"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "1.5.0"
   }
 }
