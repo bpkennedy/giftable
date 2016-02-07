@@ -7,6 +7,9 @@
 html {
     overflow-x:hidden;
 }
+img {
+    max-width:100%;
+}
 html, body {
   font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
   font-weight:900;
@@ -122,6 +125,9 @@ label {
 .page-update-password.ng-enter        { animation:slideInUp 0.5s both ease-in; }
 .page-update-password.ng-leave        { animation:slideInDown 0.5s both ease-in;z-index: 6666;}
 
+.page-main .row {
+    padding:30px;
+}
 
 
 /*Bootstrap overrides*/
@@ -312,21 +318,17 @@ label {
   padding-bottom:10%;
 }
 .peopleRowLead {
-    border: 4px solid #fafafa;
-    border-radius: 4px;
     display: block;
     font-size: 2.3em;
     margin: 0 auto;
     padding: 5px;
     text-align: center;
-    width: 60%;
     margin-bottom:5%;
 }
 .featureContainer {
-    background-color: #fafafa;
     border-radius: 4px;
-    color: #6abb92;
-    padding: 25px;
+    color: #ffffff;
+    padding-top:20%;
     text-align: center;
 }
 .featureContainer i {
@@ -335,6 +337,13 @@ label {
 .featureContainer p {
   font-size:1.2em;
   text-align:justify;
+}
+.videoTitle {
+    text-align:center;
+    padding-bottom:20px;
+}
+.videoRow {
+    background-color:#ecf0f1;
 }
 /*People Page*/
 .people {
@@ -753,14 +762,16 @@ input[type=number] {
     width: 450px;
 }
 .giftableAction {
-    background: transparent none repeat scroll 0 0;
-    border: 1px solid;
+    background: #47a2df;
+    border: 1px solid #47a2df;
     display: block;
     margin: 0 auto;
     width: auto;
+    transition: all .2s ease-in-out;
 }
 .giftableAction:hover {
     background: #ffffff;
+    border:1px solid #ffffff;
     color:#333333;
 }
 .emptyResults {
