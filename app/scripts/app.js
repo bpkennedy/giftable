@@ -25,5 +25,6 @@ angular.module('giftableApp', [
     'angular-google-analytics',
     'ngSanitize',
     'angularMoment',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'youtube-embed'
   ]);
