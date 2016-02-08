@@ -18,6 +18,29 @@ html, body {
 body {
   padding: 0;
 }
+#giftableHeader {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.giftableNavContainer {
+    background-color:#2ECC71;
+    color:#fff;
+}
+.gf {
+    background-color:#fff!important;
+}
+.navbar-default .navbar-toggle {
+    border-color:#fff!important;
+}
+.navbar-default .navbar-toggle:hover {
+    background-color:inherit!important;
+}
+.navbar-nav {
+    margin:0!important;
+}
+.navbar-collapse.in {
+    overflow-x:hidden;
+}
 input, textarea, select {
     font-weight:300;
 }
@@ -759,7 +782,6 @@ input[type=number] {
     margin: 0 auto;
     padding-bottom: 100px;
     padding-top: 60px;
-    width: 450px;
 }
 .giftableAction {
     background: #47a2df;
@@ -793,4 +815,19 @@ input[type=number] {
 }
 .giftLinkGroup {
     position:relative;
+}
+@media only screen and (max-width: 568px) {
+    .giftablePrimaryColor span {
+        display:none;
+    }
+    .giftablePrimaryColor i {
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+    .gift:hover > .hiddenDayCounter {
+        width:100%;
+    }
 }
