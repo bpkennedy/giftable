@@ -12,8 +12,6 @@ angular.module('giftableApp')
     var auth = $firebaseAuth(Ref);
     auth.$onAuth(function(authData){
         $scope.currentUser = $firebaseObject(Ref.child('users').child(authData.uid));
-        console.log('auth changed');
-        console.log(authData.uid);
 
     }); // Check user status
 

@@ -34,8 +34,6 @@ angular.module('giftableApp')
           modal.close.then(function(result) {
             $scope.formData = result;
             if ($scope.formData !== 'Cancel') {
-              console.log('would have reset here');
-              console.log(result.email);
               Auth.$resetPassword({
                   email: result.email
               })

@@ -22,7 +22,6 @@ var transporter = nodemailer.createTransport({
 app.use(bodyParser.json());
 
 app.post('/postEmail', function(req,res) {
-    console.log(req.body);
     email.registerEmail(req.body);
     res.send({ status: 'SUCCESS' });
 });
