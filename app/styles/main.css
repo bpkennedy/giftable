@@ -21,6 +21,11 @@ body {
 #giftableHeader {
     padding-left: 0px;
     padding-right: 0px;
+    background-color:#2ECC71;
+}
+#giftableHeader a {
+    color:#fff;
+    outline:0;
 }
 .giftableNavContainer {
     background-color:#2ECC71;
@@ -28,6 +33,14 @@ body {
 }
 .gf {
     background-color:#fff!important;
+}
+.form-control {
+    font-size:16px;
+}
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
 }
 .navbar-default .navbar-toggle {
     border-color:#fff!important;
@@ -160,8 +173,53 @@ label {
 .glyphicon {
     left:2px;
 }
+.giftableNav {
+    align-items: center;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.logoNav {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.logoNav a:hover {
+    background-color: inherit;
+    color: inherit;
+}
+.giftableNav li {
+    flex:1;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.giftableNav li a {
+    flex:1;
+    text-decoration: none;
+    height:100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.giftableNav li a:hover {
+    color:#2ECC71!important;
+    background-color:#ECF0F1;
+}
+
+.giftableNav li:nth-child(2) {
+    margin-left: 50%;
+}
 .giftableNav > li > a {
     line-height:18px;
+}
+.giftableNav li span {
+    padding-left: 5px;
 }
 .btn-primary {
     background-color:#3498db;
@@ -243,8 +301,10 @@ label {
 .marketing p + h4 {
   margin-top: 28px;
 }
-.giftableNav .active a:focus {
+.giftableNav .active a:focus, .giftableNav .active a:active {
     color:#2c3e50!important;
+    background-color:#ECF0F1;
+    outline:0;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -829,5 +889,34 @@ input[type=number] {
     }
     .gift:hover > .hiddenDayCounter {
         width:100%;
+    }
+    .giftableNav {
+        align-items: center;
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        list-style: outside none none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .logoNav {
+        flex:1;
+        position: inherit;
+    }
+    .navbar-brand:hover, .navbar-brand:focus {
+        outline:0;
+    }
+    .logoNav a:focus {
+        outline:0;
+    }
+    .giftableNav li {
+        flex:1;
+    }
+    .giftableNav li:nth-child(2) {
+        margin-left: 0;
+    }
+    .giftableNav li span {
+        display:none;
     }
 }

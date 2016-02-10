@@ -24,7 +24,6 @@ angular.module('giftableApp')
     }
 
     function getPersonEvent (personId, eventId) {
-        var test = allPersons.child(personId + '/events/' + eventId);
         return $firebaseObject(allPersons.child(personId + '/events/' + eventId));
     }
 

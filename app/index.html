@@ -11,7 +11,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel='stylesheet' href='bower_components/angular-block-ui/dist/angular-block-ui.css' />
     <link rel='stylesheet' href='bower_components/angular-image-crop/image-crop-styles.css' />
     <link rel='stylesheet' href='bower_components/angular-toastr/dist/angular-toastr.css' />
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
@@ -34,8 +33,31 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" id="giftableHeader" ng-cloak="">
-      <div class="navbar navbar-default" role="navigation">
+    <div class="header" id="giftableHeader" ng-cloak="" ng-controller="NavCtrl">
+        <div role="navigation">
+            <ul class="giftableNav">
+                <li class="logoNav">
+                    <a class="navbar-brand" href="#!/">giftable</a>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/people') || isCurrentPath('/login') }">
+                  <a ng-show-auth="" ng-href="#!/people">
+                    <i class="fa fa-users"></i>
+                    <span>people</span>
+                  </a>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/account') || isCurrentPath('/login') }">
+                  <a ng-hide-auth="" href="#!/login">
+                    <i class="fa fa-lock"></i>
+                    log in
+                  </a>
+                  <a ng-show-auth="" class="userName" href="#!/account">
+                    <i class="fa fa-user"></i>
+                    <span>{{currentUser.name}}</span>
+                  </a>
+                </li>
+            </ul>
+        </div>
+      <!--<div class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
 
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -45,15 +67,11 @@
             <span class="icon-bar gf"></span>
           </button>
 
-          <a class="navbar-brand" href="#!/">giftable</a>
         </div>
 
         <div class="giftableNavContainer collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl">
 
           <ul class="nav navbar-nav giftableNav">
-            <!--<li class="active"><a href="#/">Home</a></li>-->
-            <!-- //angularfire -->
-            <!--<li><a ng-show-auth="" ng-href="#/chat">chat</a></li>-->
             <li ng-class="{ active: isCurrentPath('/people') || isCurrentPath('/login') }">
               <a ng-show-auth="" ng-href="#!/people">
                 <i class="fa fa-users"></i>
@@ -74,7 +92,7 @@
             </li>
           </ul>
         </div>
-      </div>
+    </div>-->
     </div>
 
     <div class="appContainer">
@@ -107,7 +125,6 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
