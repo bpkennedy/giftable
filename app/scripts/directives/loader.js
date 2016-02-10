@@ -10,7 +10,7 @@ angular.module('giftableApp')
   .directive('loader', function () {
     return {
         restrict: 'EA',
-        templateUrl: '/scripts/directives/loader.html',
+        templateUrl: '/views/loader.html',
         controller: 'LoaderCtrl',
         // note: This would be 'ExampleController' (the exported controller name, as string)
         // if referring to a defined controller in its separate file.
