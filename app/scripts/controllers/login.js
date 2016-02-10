@@ -7,9 +7,10 @@
  * Manages authentication to any active providers.
  */
 angular.module('giftableApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService, postmail) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService, postmail, loaderSvc) {
     $scope.pageClass = 'page-login';
     $scope.passwordLogin = function(email, pass) {
+      loaderSvc.toggleOn('Logging in...');
       $scope.err = null;
       if (!email) {
           $scope.err = 'Please enter your email address';
@@ -47,6 +48,7 @@ angular.module('giftableApp')
     };
 
     $scope.createAccount = function(email, pass, name, confirm) {
+      loaderSvc.toggleOn('Creating account...');
       $scope.err = null;
       if( !pass ) {
         $scope.err = 'Please enter a password';
@@ -95,6 +97,7 @@ angular.module('giftableApp')
     }
 
     function redirect() {
+      loaderSvc.toggleOff();
       $location.path('/people');
     }
 
