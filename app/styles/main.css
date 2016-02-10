@@ -202,6 +202,10 @@ label {
 
 
 /*Bootstrap overrides*/
+.row {
+    margin-left:0;
+    margin-right:0;
+}
 .navbar{
   margin-bottom:0;
 }
@@ -245,6 +249,10 @@ label {
 .giftableNav li a:hover {
     color:#2ECC71!important;
     background-color:#ECF0F1;
+}
+.giftableNav li:first-child a:hover {
+    color:#fff!important;
+    background-color: inherit;
 }
 
 .giftableNav li:nth-child(2) {
@@ -874,6 +882,7 @@ input[type=number] {
     position:relative;
 }
 .topRowMessage {
+    transition: all .2s ease-in-out;
     margin: 0 auto;
     padding-bottom: 100px;
     padding-top: 60px;
@@ -953,5 +962,9 @@ input[type=number] {
     }
     .giftableNav li span {
         display:none;
+    }
+    .topRowMessage {
+        transition: all .2s ease-in-out;
+        padding-top: 0px;
     }
 }
