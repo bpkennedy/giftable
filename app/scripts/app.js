@@ -25,5 +25,6 @@ angular.module('giftableApp', [
     'ngSanitize',
     'angularMoment',
     'ui.bootstrap',
-    'youtube-embed'
+    'youtube-embed',
+    'angular-spinkit'
   ]);

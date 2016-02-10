@@ -44,6 +44,7 @@ module.exports = function(config) {
       'bower_components/bootcards/dist/js/bootcards.js',
       'bower_components/angular-youtube-mb/src/angular-youtube-embed.js',
       'bower_components/firebase-util/dist/firebase-util.min.js',
+      'bower_components/angular-spinkit/build/angular-spinkit.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/mockfirebase/browser/mockfirebase.js',
       // endbower
