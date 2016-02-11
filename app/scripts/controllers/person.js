@@ -102,11 +102,10 @@ angular.module('giftableApp')
           zipcode: $scope.person.zipcode
       }
     }).then(function(modal) {
-
       //it's a bootstrap element, use 'modal' to show it
       modal.element.modal();
       modal.close.then(function(result) {
-          if (result.confirm === 'yes') {
+          if (result === 'yes') {
               //handle the firebase deletion now for events, gifts, and the person
               deleteGifteeEvents();
               deleteGifteeGifts();

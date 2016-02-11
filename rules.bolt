@@ -1,0 +1,77 @@
+//or Null allows for optional data fields
+type Event {
+  createdAt: String | Null,
+  createdBy: String | Null,
+  createdFor: String | Null,
+  eventDate: String | Null,
+  eventDescription: String | Null,
+  eventTitle: String | Null,
+  notification: String | Null,
+  notificationDays: String | Null,
+  notificationTime: String | Null
+}
+
+type Gift {
+  cost: Number | Null,
+  createdAt: String | Null,
+  createdFor: String | Null,
+  description: String | Null,
+  interestLevel: Number | Null,
+  status: String | Null,
+  title: String | Null,
+  url: String | Null
+}
+
+type Person {
+  address: String | Null,
+  city: String | Null,
+  createdAt: String | Null,
+  createdBy: String | Null,
+  events: Object | Null,
+  firstName: String | Null,
+  gifts: Object | Null,
+  lastName: String | Null,
+  state: String | Null,
+  zipcode: Number | Null
+}
+
+type User {
+  email: String | Null,
+  name: String | Null
+}
+
+// Allow anyone to read the list of Events.
+path /events {
+  read() {true}
+}
+
+// Allow anyone to read the list of Gifts.
+path /gifts {
+  read() {true}
+}
+
+path /person {
+  read() {true}
+}
+
+path /user {
+  read() {true}
+}
+
+// All individual Events are writable by anyone.
+path /events/{$id} is Event {
+  write() {true}
+}
+
+// All individual Gifts are writable by anyone.
+path /gifts/{$id} is Gift {
+  write() {true}
+}
+
+path /person/{$id} is Person {
+  write() {true}
+}
+
+path /user/{$id} is User {
+  write() {true}
+}
