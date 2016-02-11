@@ -1,0 +1,9 @@
+{
+    "rules": {
+        ".read": true,
+        ".write": true,
+        "person": {
+          ".indexOn": "created_by"
+        }
+    }
+}

@@ -247,8 +247,8 @@ label {
     justify-content:center;
 }
 .giftableNav li a:hover {
-    color:#2ECC71!important;
-    background-color:#ECF0F1;
+    color:#fff!important;
+    background-color:#27ae60;
 }
 .giftableNav li:first-child a:hover {
     color:#fff!important;
@@ -348,8 +348,8 @@ label {
     outline:0;
 }
 #giftableHeader .giftableNav .active a {
-    background-color:#ECF0F1;
-    color:#2ECC71;
+    background-color:#27ae60;
+    color:#ffffff;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -421,6 +421,9 @@ label {
     padding-left: 0;
     padding-top: 10px;
 }
+.subText li {
+    padding-bottom:10px;
+}
 /*Main page*/
 .fa-gift {
     display: block;
@@ -486,6 +489,7 @@ label {
 }
 .videoRow {
     background-color:#ecf0f1;
+    padding-bottom:75px;
 }
 /*People Page*/
 .people {
@@ -592,7 +596,7 @@ label {
 /*Person Page*/
 .personHeader {
     background: #ecf0f1 none repeat scroll 0 0;
-    margin: 10px 0;
+    margin: 20px 0;
     padding:15px;
     border:1px solid #d2d2d2;
     border-radius:5px;
@@ -983,4 +987,22 @@ input[type=number] {
         transition: all .2s ease-in-out;
         padding-top: 0px;
     }
+}
+#doorbellClick > span, .githubLink {
+    background-color: #2ecc71;
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    color: #fff;
+    padding: 1px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+#doorbellClick > span:hover, .githubLink:hover {
+    background-color: #27ae60;
+    border: 1px solid #27ae60;
+    border-radius: 4px;
+    color: #fff;
+    white-space: nowrap;
+    cursor:pointer;
+    text-decoration: none;
 }

@@ -1,0 +1,133 @@
+{
+  "rules": {
+    ".read": "true",
+    "events": {
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren()",
+        "createdAt": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "createdBy": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "createdFor": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "eventDate": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "eventDescription": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "eventTitle": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "notification": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "notificationDays": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "notificationTime": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    },
+    "gifts": {
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren()",
+        "cost": {
+          ".validate": "newData.isNumber() || newData.val() == null"
+        },
+        "createdAt": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "createdFor": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "description": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "interestLevel": {
+          ".validate": "newData.isNumber() || newData.val() == null"
+        },
+        "status": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "title": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "url": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    },
+    "person": {
+      ".indexOn": "created_by",
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren()",
+        "address": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "city": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "createdAt": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "createdBy": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "events": {
+          ".validate": "newData.hasChildren() || newData.val() == null"
+        },
+        "firstName": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "gifts": {
+          ".validate": "newData.hasChildren() || newData.val() == null"
+        },
+        "lastName": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "state": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "zipcode": {
+          ".validate": "newData.isNumber() || newData.val() == null"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    },
+    "user": {
+      ".read": "true",
+      "$id": {
+        ".validate": "newData.hasChildren()",
+        "email": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "name": {
+          ".validate": "newData.isString() || newData.val() == null"
+        },
+        "$other": {
+          ".validate": "false"
+        },
+        ".write": "true"
+      }
+    }
+  }
+}
