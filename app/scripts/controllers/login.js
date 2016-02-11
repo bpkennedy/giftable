@@ -102,6 +102,7 @@ angular.module('giftableApp')
     }
 
     function showError(err) {
+        loaderSvc.toggleOff();
         if (err) {
             switch (err.code) {
               case 'INVALID_EMAIL':
