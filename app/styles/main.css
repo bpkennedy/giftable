@@ -369,7 +369,7 @@ label {
 }
 /*index page*/
 .appContainer {
-  min-height: 600px;
+  /*min-height: 600px;*/
   background: url('../pattern4.png') repeat center fixed;
 }
 .navbar-default .navbar-nav > .active > a,
