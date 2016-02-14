@@ -91,7 +91,7 @@ angular.module('giftableApp')
 
   $scope.deleteGiftee = function() {
     ModalService.showModal({
-      templateUrl: 'views/deleteGiftee.html',
+      templateUrl: 'views/deletegiftee.html',
       controller: 'PersonModalCtrl',
       inputs: {
           firstName: $scope.person.firstName,
