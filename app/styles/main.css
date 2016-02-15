@@ -57,10 +57,14 @@ body {
     padding-left: 0px;
     padding-right: 0px;
     background-color:#2ECC71;
+    z-index:99999;
 }
 #giftableHeader a {
     color:#fff;
     outline:0;
+}
+.viewContainer {
+    background:inherit;
 }
 .giftableNavContainer {
     background-color:#2ECC71;
