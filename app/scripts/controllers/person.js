@@ -244,6 +244,10 @@ angular.module('giftableApp')
       }
     };
 
+    $scope.backToPeople = function() {
+        $location.path('/people');
+    };
+
     $scope.calculateDaysAway = function(eventDate) {
         var eventDay = moment(eventDate),
             daysUntil = eventDay.diff(today, 'days');
