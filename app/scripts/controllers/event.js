@@ -15,6 +15,7 @@ angular.module('giftableApp')
     $scope.eventRaw = EventSvc.getEventRaw($scope.eventId);
     $scope.event.$loaded().then(function() {
         $scope.personEvent = PersonSvc.getPersonEvent($scope.event.createdFor, $scope.eventId);
+        $scope.event.eventDate = new Date($scope.event.eventDate);
     }) ;
     $scope.editMode = false;
     $scope.format = 'MMMM dd, yyyy';

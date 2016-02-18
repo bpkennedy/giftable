@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row personHeader">
-      <div class="col-md-4">
+      <div class="col-md-2 backButtonContainer">
+          <div class="fa fa-angle-left backButton" ng-click="backToPeople()" tooltip-placement="bottom" tooltip-popup-delay='700' uib-tooltip="Back to People"></div>
+      </div>
+      <div class="col-md-4 mainInfoContainer">
           <div class="">
               <h2 class="gifteeName">{{person.firstName}}  {{person.lastName}}</h2>
               <div class="details" ng-if="person.address || person.city || person.state || person.zipCode">
@@ -14,7 +17,7 @@
               </div>
           </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
           <div class="tiles">
               <div class="eventsSummary">
                   <div>
