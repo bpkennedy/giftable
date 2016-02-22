@@ -43,7 +43,6 @@ angular.module('giftableApp')
     };
 
     $scope.close = function(result, eventTime, notificationTime, recurrence) {
-        console.log('recurrence model from addEvent is ' + recurrence);
         result.eventTime = eventTime;
         result.notificationTime = calculateNotificationDate(new Date(eventTime), notificationTime);
         result.notificationDays = notificationTime;

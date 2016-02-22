@@ -184,7 +184,6 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
-              console.log(result);
             $scope.globalEvents.$add({
               eventTitle: result.title,
               eventDescription: result.description || '',
