@@ -3,6 +3,7 @@ var myFirebaseRef = new Firebase("https://giftable.firebaseio.com/");
 //Setting up nodemailer
 var nodemailer = require('nodemailer');
 var moment = require('moment');
+require('moment-recur');
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -42,22 +43,15 @@ myFirebaseRef.child('events').once("value", function(snapshot) {
     var notifyDate = new Date(key.notificationTime);
     var itemCreatedBy = key.createdBy;
     var itemNotifyState = key.notification;
-    if (notifyDate <= today && itemNotifyState == 'pending') {
-            emailsToSend.push(1);
-            var user = users[itemCreatedBy];
-            var eventDay = moment(key.eventDate).format("MMM, D");
-            var remainingDays = calculateEventDayDistance(key.eventDate);
-            mailOptions = {
-                from: 'Giftable <do-not-reply@mail.com>',
-                to: user.email,
-                subject: 'Giftable Event Approaching',
-                //html: '<h3>Hey <b>' + user.name + '</b>!</h3><p>Looks like <b>' + key.eventTitle + '</b> is coming up!'
-                html: constructEmailBody(user.name, key.eventTitle, eventDay, remainingDays)
-            };
-            //console.log(mailOptions);
-            updateNotificationStatus(childSnapshot.key());
-            sendEmail(mailOptions);
-
+    if (notifyDate <= today && itemNotifyState == 'pending' && !key.recurrence) {
+        prepMail(key, itemCreatedBy, childSnapshot.key(), false);
+    } else if (key.recurrence) {
+        var recurInterval = moment( notifyDate ).recur().every(1).years();
+        var isMatch = recurInterval.matches( today );
+        var alreadySentToday = moment(key.lastRecurrenceSent).isSame(today, "day");
+        if (isMatch && !alreadySentToday) {
+            prepMail(key, itemCreatedBy, childSnapshot.key(), true);
+        }
     } else {
         console.log('false');
     }
@@ -67,18 +61,42 @@ myFirebaseRef.child('events').once("value", function(snapshot) {
   console.log("The read failed: " + errorObject.code);
 });
 
-function calculateEventDayDistance(eventDay) {
-    var momentEventDay = moment(eventDay);
-    var momentToday = moment(today);
-    var difference = momentEventDay.diff(momentToday, 'days');
-    console.log(difference);
-    return difference+1;
+function prepMail(key, itemCreatedBy, childSnapKey, isRecurrence) {
+    emailsToSend.push(1);
+    var user = users[itemCreatedBy];
+    var eventDay = moment(key.eventDate).format("MMM, D");
+    var remainingDays = calculateEventDayDistance(key.eventDate, key.notificationTime);
+    mailOptions = {
+        from: 'Giftable <do-not-reply@mail.com>',
+        to: user.email,
+        subject: 'Giftable Event Approaching',
+        //html: '<h3>Hey <b>' + user.name + '</b>!</h3><p>Looks like <b>' + key.eventTitle + '</b> is coming up!'
+        html: constructEmailBody(user.name, key.eventTitle, eventDay, remainingDays)
+    };
+    //console.log(mailOptions);
+    updateNotificationStatus(childSnapKey, isRecurrence);
+    sendEmail(mailOptions);
 }
 
-function updateNotificationStatus(firebaseItem) {
-    myFirebaseRef.child('events/' + firebaseItem).update({
-        "notification":"sent"
-    });
+function calculateEventDayDistance(eventDay, notificationTime) {
+    var momentEventDay = moment(eventDay);
+    var momentNotification = moment(notificationTime);
+    var difference = momentEventDay.diff(momentNotification, 'days');
+    console.log(difference);
+    return difference;
+}
+
+function updateNotificationStatus(firebaseItem, isRecurrence) {
+    if (isRecurrence) {
+        myFirebaseRef.child('events/' + firebaseItem).update({
+            "notification":"sent",
+            "lastRecurrenceSent":new Date()
+        });
+    } else {
+        myFirebaseRef.child('events/' + firebaseItem).update({
+            "notification":"sent"
+        });
+    }
 }
 
 function sendEmail(mailOptions) {

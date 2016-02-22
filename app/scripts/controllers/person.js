@@ -184,6 +184,7 @@ angular.module('giftableApp')
         modal.close.then(function(result) {
           $scope.formData = result;
           if ($scope.formData !== 'Cancel') {
+              console.log(result);
             $scope.globalEvents.$add({
               eventTitle: result.title,
               eventDescription: result.description || '',
@@ -193,7 +194,8 @@ angular.module('giftableApp')
               createdBy: authData.uid,
               notificationTime: result.notificationTime.toJSON(),
               notificationDays: result.notificationDays,
-              notification: 'pending'
+              notification: 'pending',
+              recurrence: result.recurrence
             })
               .catch(alert).then(function(ref){
                 var eventUid = ref.key();

@@ -45,7 +45,8 @@ angular.module('giftableApp')
             'eventDescription':event.eventDescription || '',
             'eventDate':event.eventDate,
             'notificationDays':event.notificationDays,
-            'notificationTime': calculateNotificationDate(new Date(event.eventDate), event.notificationDays)
+            'notificationTime': calculateNotificationDate(new Date(event.eventDate), event.notificationDays),
+            'recurrence': event.recurrence
         }, function(error) {
             if (error) {
                 toastError(error);
