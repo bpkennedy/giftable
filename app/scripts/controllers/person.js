@@ -194,7 +194,7 @@ angular.module('giftableApp')
               notificationTime: result.notificationTime.toJSON(),
               notificationDays: result.notificationDays,
               notification: 'pending',
-              recurrence: result.recurrence
+              recurrence: result.recurrence || null
             })
               .catch(alert).then(function(ref){
                 var eventUid = ref.key();
