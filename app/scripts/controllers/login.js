@@ -10,7 +10,6 @@ angular.module('giftableApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout, Analytics, toastr, ModalService, postmail, loaderSvc) {
     $scope.pageClass = 'page-login';
     $scope.passwordLogin = function(email, pass) {
-      loaderSvc.toggleOn('Logging in...');
       $scope.err = null;
       if (!email) {
           $scope.err = 'Please enter your email address';
@@ -19,6 +18,7 @@ angular.module('giftableApp')
           $scope.err = 'Please enter a password';
       }
       else {
+          loaderSvc.toggleOn('Logging in...');
           Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
           redirect, showError
         );
@@ -74,6 +74,7 @@ angular.module('giftableApp')
         ref.set({email: email, name: name}, function(err) {
           $timeout(function() {
             if( err ) {
+              loaderSvc.toggleOff();
               def.reject(err);
             }
             else {
