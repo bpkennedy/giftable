@@ -46,6 +46,12 @@
                                     <span class="alert alert-danger formAlert" ng-show="eventForm.eventNotificationDate.$touched && eventForm.eventNotificationDate.$error.required">Must have a Reminder Notification Day(s)</span>
                                   </p>
                                 </div>
+                                <div class="form-group">
+                                  <label for="eventRecur">Yearly Recurrence</label>
+                                  <p class="form-group relative">
+                                    <input type="checkbox" class="form-control" name="eventRecur" id="eventRecur" value="" ng-model="event.recurrence"/>
+                                  </p>
+                                </div>
                             </fieldset>
                     </div>
                     <div class="panel-footer itemFooter">

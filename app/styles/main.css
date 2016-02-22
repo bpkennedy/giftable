@@ -464,6 +464,12 @@ label {
     color: #fafafa;
     padding-top: 5%;
 }
+#eventRecur {
+    width:35px;
+}
+#eventRecur:hover {
+    cursor: pointer;
+}
 .eventRow {
   background-color:#2ecc71;
 }
