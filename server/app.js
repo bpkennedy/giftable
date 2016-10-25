@@ -30,7 +30,7 @@ app.post('/postEmail', function(req,res) {
 app.set('port', process.env.PORT || 5000);
 
 // express/connect middleware
-app.use(favicon(__dirname + '../app/favicon.ico'));
+app.use(favicon(__dirname + '/favicon.ico'));
 app.use(morgan('dev'));
 app.use(require('prerender-node').set('prerenderToken', 'uH3TZE7nuQOWHPbgfiIf'));
 
